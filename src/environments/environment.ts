@@ -3,7 +3,7 @@
  */
 
 //Nombre de la aplicación
-const appName = 'appname';
+const appName = 'rutasextre/public';
 
 export const environment = {
   production: false,

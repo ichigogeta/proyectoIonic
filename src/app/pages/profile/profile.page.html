@@ -7,6 +7,22 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-
+<ion-content padding>
+  <form *ngIf="form" [formGroup]="form" (ngSubmit)="submitForm()">
+    <ion-item>
+      <ion-input clearInput type="text" placeholder="Nombre de usuario" formControlName="name" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input clearInput type="email" placeholder="Email" formControlName="email" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input clearInput type="password" placeholder="Contraseña" formControlName="password" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input clearInput type="password" placeholder="Confirma la contraseña" formControlName="password_confirmation"
+        required>
+      </ion-input>
+    </ion-item>
+    <ion-button expand="block" type="submit" [disabled]="!form.valid">Guardar cambios</ion-button>
+  </form>
 </ion-content>
