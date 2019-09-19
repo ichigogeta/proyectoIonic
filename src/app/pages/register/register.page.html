@@ -1,0 +1,39 @@
+<ion-content class="contenido">
+  <div class="overlay"></div>
+  <div class="form-wrapper" text-center>
+    <form *ngIf="form" [formGroup]="form" (ngSubmit)="submitForm()">
+      <p class="title">Crea una nueva cuenta, es realmente facil!</p>
+      <ion-item>
+        <ion-input clearInput type="text" placeholder="Nombre de usuario" formControlName="name" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input clearInput type="email" placeholder="Email" formControlName="email" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input clearInput type="password" placeholder="Contraseña" formControlName="password" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input clearInput type="password" placeholder="Confirma la contraseña"
+          formControlName="password_confirmation" required>
+        </ion-input>
+      </ion-item>
+      <ion-button type="submit" [disabled]="!form.valid">Crear cuenta</ion-button>
+      <ion-button type="button">Tienes cuenta?</ion-button>
+
+      <div class="separadores">
+        <div class="separador"></div>
+        <div class="o">o</div>
+        <div class="separador"></div>
+      </div>
+
+      <div class="social-login" text-center>
+        <button ion-button class="btn-social" id="facebook">
+          <ion-icon name="logo-facebook"></ion-icon> Regístrate con Facebook
+        </button>
+        <button ion-button class="btn-social" id="google">
+          <ion-icon name="logo-googleplus"></ion-icon> Regístrate con Google plus
+        </button>
+      </div>
+    </form>
+  </div>
+</ion-content>

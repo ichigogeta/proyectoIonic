@@ -1,0 +1,17 @@
+<ion-content class="background">
+  <div class="overlay"></div>
+  <div class="form-wrapper" text-center>
+    <form *ngIf="form" [formGroup]="form" (ngSubmit)="submitForm()">
+      <p class="title">Introduce los datos para acceder al contenido</p>
+      <ion-item>
+        <ion-input clearInput type="text" placeholder="Usuario" formControlName="email"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input clearInput type="password" placeholder="Contraseña" formControlName="password"></ion-input>
+      </ion-item>
+      <ion-button type="submit" [disabled]="form.invalid">Entrar</ion-button>
+      <ion-button>Regístrate</ion-button>
+      <p class="title" text-center>¿Has olvidado tu contraseña?</p>
+    </form>
+  </div>
+</ion-content>
