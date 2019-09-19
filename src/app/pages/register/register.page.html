@@ -1,4 +1,4 @@
-<ion-content class="contenido">
+<ion-content>
   <div class="overlay"></div>
   <div class="form-wrapper" text-center>
     <form *ngIf="form" [formGroup]="form" (ngSubmit)="submitForm()">
@@ -17,12 +17,10 @@
           formControlName="password_confirmation" required>
         </ion-input>
       </ion-item>
-      <ion-button type="submit" [disabled]="!form.valid">Crear cuenta</ion-button>
-      <ion-button type="button">Tienes cuenta?</ion-button>
+      <ion-button expand="block" type="submit" [disabled]="!form.valid">Crear cuenta</ion-button>
+      <ion-button expand="block" type="button" routerLink="/login">Tienes cuenta?</ion-button>
 
-      <div class="separadores">
-        <div class="separador"></div>
-        <div class="o">o</div>
+      <div class="separadores" text-center>
         <div class="separador"></div>
       </div>
 

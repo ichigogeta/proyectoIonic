@@ -1,9 +1,7 @@
-ion-content.background{
+ion-content{
     background-size: cover;
     background-position-x: 50%;
-    background:url('../../../assets/imgs/base-background.jpg') !important;
-}
-ion-content{
+    --background:url(../../../assets/imgs/base-background.jpg);
     .overlay{
 
         background-color: rgba(0,0,0,0.8);

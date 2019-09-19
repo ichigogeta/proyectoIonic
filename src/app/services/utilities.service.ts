@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
-import { AlertController, LoadingController, Platform } from '@ionic/angular';
+import { AlertController,ToastController, LoadingController, Platform } from '@ionic/angular';
 import { Storage } from '@ionic/storage';
-import { Toast } from '@ionic-native/toast/ngx';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +12,7 @@ export class UtilitiesService {
   constructor(private loadingCtrl: LoadingController,
     private alertCtrl: AlertController,
     private platform: Platform,
-    private toast: Toast,
+    private toast: ToastController,
     private storage:Storage) { }
 
   /**
@@ -126,9 +125,13 @@ export class UtilitiesService {
    * Muestra un toast genérico para notificar algo (un error, éxito, etc)
    * @param message Mensaje del toast
    */
-  public showToast(message: string) {
-    let duration='5000';
-    this.toast.show(message, duration, 'center').subscribe();
+  public async showToast(message: string) {
+      const toast = await this.toast.create({
+        message: message,
+        duration: 5000,
+        buttons:['OK']
+      });
+      toast.present();
   }
 
   public capitalizeFirstLetter(string: string) {

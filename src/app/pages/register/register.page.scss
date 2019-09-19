@@ -19,7 +19,8 @@ ion-content{
             padding-left: 0 !important;
         }
         .title{
-            color:#ccc;
+            color:#fff;
+            font-size: 20px;
             margin-top:20px;
             margin-bottom: 30px;
         }
@@ -30,19 +31,14 @@ ion-content{
         .separadores{
             margin-left: 10px;
             .separador{
-                width:40%;
+                width:90%;
                 float: left;
-                background-color: rgb(122, 120, 120);
+                background-color: rgb(196, 192, 192);
                 height: 1px;
                 margin-top:15px;
                 margin-bottom:15px;
             }
-            .o{
-                margin-left:20px;
-                margin-right: 20px;
-                display: inline;
-                color:rgb(122, 120, 120);
-            }
+            
         }
         .btn-social{
             width: 100%;
@@ -55,9 +51,11 @@ ion-content{
         }
         #facebook{
             background-color: #3b5998 !important;
+            color:white;
         }
         #google{
             background-color: #d34836;
+            color:white;
         }
     }
 }
