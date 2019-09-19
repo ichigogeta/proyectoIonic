@@ -31,7 +31,7 @@ export class ProfilePage implements OnInit {
 
     this.apiService.getUser().subscribe((user: User) => {
       this.user = user;
-      console.log("Usuario => ", user);
+      this.form.patchValue(user);
     });
 
     this.apiService.userChanges.subscribe((user:User)=>{

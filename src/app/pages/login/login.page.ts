@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ApiService } from 'src/app/services/api.service';
 import { UtilitiesService } from 'src/app/services/utilities.service';
-import { MenuController } from '@ionic/angular';
+import { MenuController, NavController } from '@ionic/angular';
 import { User } from 'src/app/models/User';
 import { codeErrors } from "../../utils/utils";
 
@@ -21,7 +21,8 @@ export class LoginPage implements OnInit {
     private formBuilder: FormBuilder,
     private apiService: ApiService,
     private utilitiesService: UtilitiesService,
-    private menuCtrl: MenuController) { }
+    private menuCtrl: MenuController,
+    private navCtrl:NavController) { }
 
   public ngOnInit(): void {
 
@@ -39,10 +40,12 @@ export class LoginPage implements OnInit {
     this.apiService.login(this.form.value).subscribe((user: User) => {
 
       this.utilitiesService.showToast('Login correcto');
-
+      console.log(user);
       //Ahora aplicamos la cabecera devuelta a las siguientes peticiones
       this.apiService.setToken(user.api_token);
 
+      //Vamos a inicio
+      this.navCtrl.navigateRoot('/home');
     }, (error) => {
 
       this.utilitiesService.showToast(codeErrors(error));

@@ -37,12 +37,12 @@ export class ApiService {
   /**
    * Método para añadir el bearer token a las cabeceras
    */
-  public setToken(tokenInfo:any): void {
+  public setToken(token:string): void {
     //Asignar token a las siguientes peticiones
     this.httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${tokenInfo.access_token}`
+        'Authorization': `Bearer ${token}`
       })
     };
   }
