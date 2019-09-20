@@ -37,6 +37,14 @@ export class ApiService {
   }
 
   /**
+   * Método para recuperar contraseña
+   * @param email 
+   */
+  public forgotPassword(email: string) {
+    return this.http.post(environment.apiUrl + 'forgot-password', email);
+  }
+
+  /**
    * Método para añadir el bearer token a las cabeceras
    */
   public setToken(token: string): void {

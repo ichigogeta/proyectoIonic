@@ -12,6 +12,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { IonicStorageModule } from '@ionic/storage';
 import { HttpClientModule } from '@angular/common/http';
 import { Toast } from '@ionic-native/toast/ngx';
+import { Push } from '@ionic-native/push/ngx';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { Toast } from '@ionic-native/toast/ngx';
     StatusBar,
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-    Toast
+    Toast,
+    Push
   ],
   bootstrap: [AppComponent]
 })
