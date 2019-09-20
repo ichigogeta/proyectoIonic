@@ -4,7 +4,8 @@ import { Subject } from 'rxjs';
 import { User } from '../models/User';
 
 import { environment } from '../../environments/environment';
-import { HttpClient,HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { UtilitiesService } from './utilities.service';
 
 @Injectable({
   providedIn: 'root'
@@ -15,14 +16,15 @@ export class ApiService {
   public userChanges = new Subject<User>();
   public httpOptions: any;
 
-  constructor(public http: HttpClient) {}
+  constructor(public http: HttpClient,
+    private utilities:UtilitiesService) { }
 
   /**
    * Método para iniciar sesión
    * @param email 
    * @param password 
    */
-  public login(user:User) {
+  public login(user: User) {
     return this.http.post<User>(environment.apiUrl + 'login', user);
   }
 
@@ -30,14 +32,14 @@ export class ApiService {
    * Método para el registro básico
    * @param user 
    */
-  public register(user:User) {
+  public register(user: User) {
     return this.http.post(environment.apiUrl + 'signup', user);
   }
 
   /**
    * Método para añadir el bearer token a las cabeceras
    */
-  public setToken(token:string): void {
+  public setToken(token: string): void {
     //Asignar token a las siguientes peticiones
     this.httpOptions = {
       headers: new HttpHeaders({
@@ -68,6 +70,17 @@ export class ApiService {
    */
   public getTranslations() {
     return this.http.get(environment.apiUrl + 'traducciones', this.httpOptions);
+  }
+
+  /**
+   * Guardar el token del dispositivo en el servidor
+   * @param tokenRegistro 
+   */
+  public guardarTokenDeRegistro(tokenRegistro) {
+    const urlSearchParams = new URLSearchParams();
+    urlSearchParams.append('registerToken', tokenRegistro);
+    urlSearchParams.append('platform', this.utilities.getPlatform());
+    return this.http.post(environment.apiUrl + 'guardar-token', urlSearchParams, this.httpOptions);
   }
 
   // ====================== Métodos añadidos ==========================

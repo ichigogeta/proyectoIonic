@@ -7,6 +7,10 @@ const domain = 'http://dominio.com/devxerintel/';
 
 export const environment = {
   production: true,
+  
   //Url del endpoint de la api
-  apiUrl: domain + '/api/auth/'
+  apiUrl: domain + '/api/auth/',
+  
+  //Sender id para las notificaciones push
+  senderID:'777777777'
 };
