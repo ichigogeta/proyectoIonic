@@ -3,7 +3,9 @@ ion-content{
     background-size: cover;
     background-position-x: 50%;
     
-    
+    ion-button{
+        text-transform: none;
+    }
     .overlay{
         background-color: rgba(0,0,0,0.8);
         position: absolute;

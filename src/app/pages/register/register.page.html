@@ -29,7 +29,7 @@
           formControlName="password_confirmation" required>
         </ion-input>
       </ion-item>
-      <ion-button expand="block" type="submit" [disabled]="!form.valid">Crear cuenta</ion-button>
+      <ion-button expand="block" type="submit" [disabled]="!form.valid" color="tertiary">Crear cuenta</ion-button>
       <ion-button expand="block" type="button" routerLink="/login">Tienes cuenta?</ion-button>
 
       <div class="separadores" text-center>
@@ -37,10 +37,10 @@
       </div>
 
       <div class="social-login" text-center>
-        <button ion-button class="btn-social" id="facebook">
+        <button ion-button class="btn-social" id="facebook" type="button">
           <ion-icon name="logo-facebook"></ion-icon> Regístrate con Facebook
         </button>
-        <button ion-button class="btn-social" id="google">
+        <button ion-button class="btn-social" id="google" type="button">
           <ion-icon name="logo-googleplus"></ion-icon> Regístrate con Google plus
         </button>
       </div>
