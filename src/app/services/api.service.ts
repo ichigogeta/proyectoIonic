@@ -76,6 +76,13 @@ export class ApiService {
     return this.storage.get('api_token');
   }
 
+  /**
+   * Borramos todos los datos del storage
+   */
+  public clearStorage(){
+    this.storage.clear();
+  }
+
 
   /**
    * Método para obtener los datos del usuario

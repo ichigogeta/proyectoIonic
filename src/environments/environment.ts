@@ -3,7 +3,7 @@
  */
 
 //Nombre de la aplicación
-const appName = 'umac-laravel/public';
+const appName = 'personalizacion-laravel/public';
 
 export const environment = {
   production: false,

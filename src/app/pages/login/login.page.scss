@@ -1,6 +1,5 @@
 ion-content{
     background-size: cover;
-    background-position-x: 50%;
     --background:url(../../../assets/imgs/base-background.jpg);
     .overlay{
 
@@ -12,7 +11,7 @@ ion-content{
     }
     .form-wrapper{
         position: absolute;
-        top:20%;
+        top:25%;
         padding:35px;
         z-index: 9999;
         ion-item{
@@ -23,6 +22,20 @@ ion-content{
             margin-top:20px;
             margin-bottom: 30px;
         }
+    }
+    ion-button{
+        text-transform: none;
+    }
+    .logo{
+        img{
+            width: 130px;
+            height: 130px; 
+        }
+        margin:0 auto;
+        position: absolute;
+        z-index: 2;
+        width: 100vw;
+        top:10vh;
     }
 }
 

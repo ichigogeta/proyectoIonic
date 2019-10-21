@@ -1,0 +1,43 @@
+ion-footer{ 
+    position: absolute;
+    ion-button{
+        text-transform: none;
+        width:40%;
+        margin:10px;
+    }
+    bottom:50px;
+}
+ion-content{
+    .logo{
+        img{
+            width: 130px;
+            height: 130px; 
+        }
+        margin:0 auto;
+        position: absolute;
+        z-index: 2;
+        width: 100vw;
+        top:15vh;
+    }
+    video{
+        height: auto;
+        width: 100vw;
+        margin: 0; height: 100%; overflow: hidden;
+        position: fixed;
+    }
+    .overlay{
+        background-color: rgba(0, 0, 0, 0.5);
+        width: 100%;
+        height: 100vh;
+        position: absolute;
+        z-index: 1;
+    }
+    .title{
+        position: absolute;
+        z-index: 2;
+        color:white;
+        top: 35vh;
+        width: 100vw;
+        text-align: center;
+    }
+}

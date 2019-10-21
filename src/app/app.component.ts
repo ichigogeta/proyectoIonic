@@ -101,14 +101,25 @@ export class AppComponent implements OnInit {
     pushObject.on('error').subscribe(error => console.error('Error with Push plugin', error));
   }
 
+  /**
+   * Login implícito
+   */
   public async loginImplicito(){
     let token=await this.apiService.getTokenStorage();
     if(token) {
       await this.apiService.setTokenToHeaders(token);
       this.navCtrl.navigateRoot('/home');
     }else{
-      this.navCtrl.navigateRoot('/login');
+      this.navCtrl.navigateRoot('/cover-page');
     }
+  }
+
+  /**
+   * Método para cerrar sesión
+   */
+  public async logout(){
+    this.apiService.clearStorage();
+    this.navCtrl.navigateRoot('/cover-page');
   }
 
 }
