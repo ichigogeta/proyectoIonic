@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Platform,Events } from '@ionic/angular';
+import { Platform,Events, NavController } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { ApiService } from './services/api.service';
@@ -37,14 +37,15 @@ export class AppComponent implements OnInit {
     private apiService: ApiService,
     private push: Push,
     private utilities: UtilitiesService,
-    private events:Events) {
+    private events:Events,
+    private navCtrl:NavController) {
   }
 
   /**
    * Nos suscribimos a los cambios dle perfil
    */
   public ngOnInit(): void {
-
+    this.loginImplicito();
     this.events.subscribe('user:login', () => {
       this.pushNotifications();
     });
@@ -98,6 +99,16 @@ export class AppComponent implements OnInit {
     });
 
     pushObject.on('error').subscribe(error => console.error('Error with Push plugin', error));
+  }
+
+  public async loginImplicito(){
+    let token=await this.apiService.getTokenStorage();
+    if(token) {
+      await this.apiService.setTokenToHeaders(token);
+      this.navCtrl.navigateRoot('/home');
+    }else{
+      this.navCtrl.navigateRoot('/login');
+    }
   }
 
 }

@@ -6,6 +6,8 @@ import { User } from '../models/User';
 import { environment } from '../../environments/environment';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { UtilitiesService } from './utilities.service';
+import { Storage } from '@ionic/storage';
+
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +19,8 @@ export class ApiService {
   public httpOptions: any;
 
   constructor(public http: HttpClient,
-    private utilities:UtilitiesService) { }
+    private utilities:UtilitiesService,
+    private storage:Storage) { }
 
   /**
    * Método para iniciar sesión
@@ -45,9 +48,10 @@ export class ApiService {
   }
 
   /**
-   * Método para añadir el bearer token a las cabeceras
+   * Método para añadir el bearer token a las cabeceras 
    */
-  public setToken(token: string): void {
+  public setTokenToHeaders(token: string): void {
+
     //Asignar token a las siguientes peticiones
     this.httpOptions = {
       headers: new HttpHeaders({
@@ -56,6 +60,22 @@ export class ApiService {
       })
     };
   }
+
+  /**
+   * Guardamos el token de sesion en el storage
+   */
+  public setTokenStorage(token: string): void {
+    //Guardamos el token en el storage
+    this.storage.set('api_token', token);
+  }
+
+  /**
+   * Devolvemos el token del storage 
+   */
+  public getTokenStorage() {
+    return this.storage.get('api_token');
+  }
+
 
   /**
    * Método para obtener los datos del usuario

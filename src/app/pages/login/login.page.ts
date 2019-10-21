@@ -41,11 +41,14 @@ export class LoginPage implements OnInit {
       this.utilitiesService.showToast('Login correcto');
       console.log(user);
 
-      //Ahora aplicamos la cabecera devuelta a las siguientes peticiones
-      this.apiService.setToken(user.api_token);
+    //Ahora aplicamos la cabecera devuelta a las siguientes peticiones
+    this.apiService.setTokenToHeaders(user.api_token);
 
-      //Emitimos el evento de login
-      this.events.publish('user:login');
+    //Emitimos el evento de login
+    this.events.publish('user:login');
+
+    //Guardamos el token en el storage
+    this.apiService.setTokenStorage(user.api_token);
 
       //Vamos a inicio
       this.navCtrl.navigateRoot('/home');
