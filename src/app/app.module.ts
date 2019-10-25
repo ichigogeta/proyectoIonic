@@ -13,6 +13,7 @@ import { IonicStorageModule } from '@ionic/storage';
 import { HttpClientModule } from '@angular/common/http';
 import { Toast } from '@ionic-native/toast/ngx';
 import { Push } from '@ionic-native/push/ngx';
+import { Camera } from '@ionic-native/camera/ngx';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { Push } from '@ionic-native/push/ngx';
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     Toast,
-    Push
+    Push,
+    Camera
   ],
   bootstrap: [AppComponent]
 })

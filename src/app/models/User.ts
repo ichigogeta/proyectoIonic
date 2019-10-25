@@ -6,5 +6,6 @@ export interface User{
     email: string,
     password?:string,
     password_confirmation?:string,
-    api_token?:string
+    api_token?:string,
+    avatar:string
 }

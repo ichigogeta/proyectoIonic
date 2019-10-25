@@ -8,6 +8,9 @@
 </ion-header>
 
 <ion-content padding>
+  <ion-avatar>
+    <img [src]="user?.avatar" (click)="adjuntarImagen()">
+  </ion-avatar>
   <form *ngIf="form" [formGroup]="form" (ngSubmit)="submitForm()">
     <ion-item>
       <ion-label>
