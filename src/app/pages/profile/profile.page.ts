@@ -34,7 +34,6 @@ export class ProfilePage implements OnInit {
     });
 
     this.apiService.getUser().subscribe((user: User) => {
-      user.avatar=environment.domainUrl+'/storage/'+user.avatar;
       this.user = user;
       
       this.form.patchValue(user);

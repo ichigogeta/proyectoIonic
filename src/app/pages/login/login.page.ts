@@ -38,7 +38,6 @@ export class LoginPage implements OnInit {
   public submitForm(): void {
 
     this.apiService.login(this.form.value).subscribe((user: User) => {
-      this.utilitiesService.showToast('Login correcto');
       console.log(user);
 
     //Ahora aplicamos la cabecera devuelta a las siguientes peticiones
