@@ -112,11 +112,9 @@ export class ApiService {
    * @param tokenRegistro 
    */
   public guardarTokenDeRegistro(tokenRegistro) {
-    const urlSearchParams = new URLSearchParams();
-    urlSearchParams.append('registerToken', tokenRegistro);
-    urlSearchParams.append('platform', this.utilities.getPlatform());
-    return this.http.post(environment.apiUrl + 'guardar-token', urlSearchParams, this.httpOptions);
+    return this.http.post(environment.apiUrl + 'guardar-token', { registerToken: tokenRegistro, platform: this.utilities.getPlatform() }, this.httpOptions);
   }
+
 
   // ====================== Métodos añadidos ==========================
 
