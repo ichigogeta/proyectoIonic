@@ -115,6 +115,14 @@ export class ApiService {
     return this.http.post(environment.apiUrl + 'guardar-token', { registerToken: tokenRegistro, platform: this.utilities.getPlatform() }, this.httpOptions);
   }
 
+    /**
+   * Método para procesar el pago
+   */
+  public procesarPago(params: { precio: number, stripeToken?: any }): any {
+
+    return this.http.post(environment.apiUrl + 'pago', params, this.httpOptions);
+  }
+
 
   // ====================== Métodos añadidos ==========================
 

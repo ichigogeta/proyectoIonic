@@ -13,5 +13,8 @@ export const environment = {
   domainUrl:'http://localhost/' + appName,
   
   //Sender id para las notificaciones push
-  senderID:'777777777'
+  senderID:'777777777',
+  
+  //Clave de stripe
+  stripePublishableKey:'pk_test_***************'
 };

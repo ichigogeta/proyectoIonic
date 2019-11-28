@@ -12,5 +12,8 @@ export const environment = {
   apiUrl: domain + '/api/auth/',
   
   //Sender id para las notificaciones push
-  senderID:'777777777'
+  senderID:'777777777',
+
+   //Clave de stripe
+   stripePublishableKey:'pk_test_***************'
 };

@@ -8,6 +8,7 @@ import { User } from './models/User';
 import { Push, PushObject, PushOptions } from '@ionic-native/push/ngx';
 import { UtilitiesService } from './services/utilities.service';
 import { environment } from "../environments/environment";
+import { Stripe } from '@ionic-native/stripe';
 
 @Component({
   selector: 'app-root',
@@ -38,7 +39,8 @@ export class AppComponent implements OnInit {
     private push: Push,
     private utilities: UtilitiesService,
     private events:Events,
-    private navCtrl:NavController) {
+    private navCtrl:NavController,
+    private stripe: Stripe) {
   }
 
   /**
@@ -47,6 +49,7 @@ export class AppComponent implements OnInit {
   public ngOnInit(): void {
     this.loginImplicito();
     this.events.subscribe('user:login', () => {
+      this.prepararStripe();
       this.pushNotifications();
     });
 
@@ -120,6 +123,13 @@ export class AppComponent implements OnInit {
   public async logout(){
     this.apiService.clearStorage();
     this.navCtrl.navigateRoot('/cover-page');
+  }
+
+  /**
+   * Preparamos stripe con su configuración
+   */
+  public prepararStripe(): void {
+    this.stripe.setPublishableKey(environment.stripePublishableKey);
   }
 
 }
