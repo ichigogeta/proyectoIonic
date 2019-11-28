@@ -14,7 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { Toast } from '@ionic-native/toast/ngx';
 import { Push } from '@ionic-native/push/ngx';
 import { Camera } from '@ionic-native/camera/ngx';
-import { Stripe } from '@ionic-native/stripe';
+import { Stripe } from '@ionic-native/stripe/ngx';
 
 
 @NgModule({

@@ -8,7 +8,7 @@ import { User } from './models/User';
 import { Push, PushObject, PushOptions } from '@ionic-native/push/ngx';
 import { UtilitiesService } from './services/utilities.service';
 import { environment } from "../environments/environment";
-import { Stripe } from '@ionic-native/stripe';
+import { Stripe } from '@ionic-native/stripe/ngx';
 
 @Component({
   selector: 'app-root',
