@@ -8,6 +8,24 @@ ion-footer{
     bottom:50px;
 }
 ion-content{
+    --background: linear-gradient(0deg, rgba(255,255,255,1) 50%, rgba(90,97,85,1) 100%);
+    .botones{
+        position: absolute;
+        width: 100%;
+        top:60vh;
+    }
+    .btn-facebook{
+        font-weight: lighter;
+        width: 100%;
+        background:#3B5998;
+        margin-bottom:10px;
+    }
+    .btn-login{
+        font-weight: lighter;
+        width: 100%;
+        --background: linear-gradient(90deg, #024CD7 ,#03C0D0 );
+    }
+    
     .logo{
         img{
             width: 130px;
@@ -24,13 +42,6 @@ ion-content{
         width: 100vw;
         margin: 0; height: 100%; overflow: hidden;
         position: fixed;
-    }
-    .overlay{
-        background-color: rgba(0, 0, 0, 0.5);
-        width: 100%;
-        height: 100vh;
-        position: absolute;
-        z-index: 1;
     }
     .title{
         position: absolute;
