@@ -31,12 +31,18 @@ export class ProfilePage implements OnInit {
       password: [''],
       password_confirmation: ['', confirmPassword]
     });
-
+   
+    this.utilities.showLoading("Cargando perfil...");
+    
     this.apiService.getUser().subscribe((user: User) => {
       this.user = user;
-      
       this.form.patchValue(user);
+      this.utilities.dismissLoading();
+    },error=>{
+      this.utilities.showToast("Error obteniendo el usuario");
+      this.utilities.dismissLoading();
     });
+
     this.apiService.userChanges.subscribe((user: User) => {
       this.user = user;
     });
