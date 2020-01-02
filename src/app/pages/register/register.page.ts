@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MenuController } from '@ionic/angular';
+import { MenuController, NavController } from '@ionic/angular';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { confirmPassword } from 'src/app/utils/utils';
 import { ApiService } from 'src/app/services/api.service';
@@ -20,7 +20,8 @@ export class RegisterPage implements OnInit {
     private menuCtrl: MenuController,
     private formBuilder: FormBuilder,
     private apiService: ApiService,
-    private utilitiesService: UtilitiesService) { }
+    private utilitiesService: UtilitiesService,
+    private navCtrl: NavController) { }
 
   public ngOnInit(): void {
 
@@ -36,10 +37,15 @@ export class RegisterPage implements OnInit {
   }
 
   public submitForm(): void {
+    this.utilitiesService.showLoading("Registrando usuario...");
 
     this.apiService.register(this.form.value).subscribe((user: User) => {
+      
+      this.utilitiesService.dismissLoading();
 
       this.utilitiesService.showToast('Registro correcto');
+
+      this.navCtrl.navigateRoot('/login');
 
     }, (error) => {
 
