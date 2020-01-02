@@ -56,6 +56,7 @@ export class LoginPage implements OnInit {
       this.navCtrl.navigateRoot('/home');
 
     }, (error) => {
+      this.utilitiesService.dismissLoading();
       this.utilitiesService.showToast(codeErrors(error));
     });
   }

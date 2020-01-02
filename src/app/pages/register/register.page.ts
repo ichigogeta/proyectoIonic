@@ -48,7 +48,8 @@ export class RegisterPage implements OnInit {
       this.navCtrl.navigateRoot('/login');
 
     }, (error) => {
-
+      
+      this.utilitiesService.dismissLoading();
       this.utilitiesService.showToast(codeErrors(error));
 
     });
