@@ -5,7 +5,6 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { confirmPassword, codeErrors } from 'src/app/utils/utils';
 import { UtilitiesService } from 'src/app/services/utilities.service';
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
-import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-profile',
