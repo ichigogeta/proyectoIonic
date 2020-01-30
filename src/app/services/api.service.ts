@@ -19,8 +19,8 @@ export class ApiService {
   public httpOptions: any;
 
   constructor(public http: HttpClient,
-    private utilities:UtilitiesService,
-    private storage:Storage) { }
+    private utilities: UtilitiesService,
+    private storage: Storage) { }
 
   /**
    * Método para iniciar sesión
@@ -79,17 +79,10 @@ export class ApiService {
   /**
    * Borramos todos los datos del storage
    */
-  public clearStorage(){
+  public clearStorage() {
     this.storage.clear();
   }
 
-
-  /**
-   * Método para obtener los datos del usuario
-   */
-  public getUser(): any {
-    return this.http.get<User>(environment.apiUrl + 'user', this.httpOptions);
-  }
 
   /**
    * Método para actualizar los datos del usuario
@@ -100,12 +93,6 @@ export class ApiService {
     return this.http.post<User>(environment.apiUrl + 'update-user', user, this.httpOptions);
   }
 
-  /**
-   * Método para obtener las traducciones
-   */
-  public getTranslations() {
-    return this.http.get(environment.apiUrl + 'traducciones', this.httpOptions);
-  }
 
   /**
    * Guardar el token del dispositivo en el servidor
@@ -115,16 +102,90 @@ export class ApiService {
     return this.http.post(environment.apiUrl + 'guardar-token', { registerToken: tokenRegistro, platform: this.utilities.getPlatform() }, this.httpOptions);
   }
 
-    /**
-   * Método para procesar el pago
-   */
+  /**
+ * Método para procesar el pago
+ */
   public procesarPago(params: { precio: number, stripeToken?: any }): any {
 
     return this.http.post(environment.apiUrl + 'pago', params, this.httpOptions);
   }
 
 
-  // ====================== Métodos añadidos ==========================
+  // ====================== Métodos API RESTFUL ==========================
 
 
+  // Como obtener los productos por ejemplo:
+  // this.apiService.getEntity('productos').subscribe((productos:Productos)=>{console.log(productos)});
+
+
+  // ====================== Obtener entidades ================================
+
+  public getEntity(entity: string, id?: number): any {
+    if (id)
+      return this.http.get(environment.apiUrl + entity + '/' + id, this.httpOptions);
+    else
+      return this.http.get(environment.apiUrl + entity, this.httpOptions);
+  }
+
+  public getSubEntity(entity: string, idEntity: number, subEntity: string, idSubEntity?: number): any {
+    if (idSubEntity)
+      return this.http.get(environment.apiUrl + entity + '/' + idEntity + '/' + subEntity + '/' + idSubEntity, this.httpOptions);
+    else
+      return this.http.get(environment.apiUrl + entity + '/' + idEntity + '/' + subEntity, this.httpOptions);
+  }
+
+  public getSubSubEntity(entity: string, idEntity: number, subEntity: string, idSubEntity: number, subSubEntity: string, idSubSubEntity?: number): any {
+    if (idSubSubEntity)
+      return this.http.get(environment.apiUrl + entity + '/' + idEntity + '/' + subEntity + '/' + idSubEntity + '/' + subSubEntity + '/' + idSubSubEntity, this.httpOptions);
+    else
+      return this.http.get(environment.apiUrl + entity + '/' + idEntity + '/' + subEntity + '/' + idSubEntity + '/' + subSubEntity, this.httpOptions);
+  }
+
+
+  // ====================== Añadir entidades ================================
+
+
+  public addEntity(entity: string, params: any): any {
+    return this.http.post(environment.apiUrl + entity + '/', params, this.httpOptions);
+  }
+
+  public addSubEntity(entity: string, idEntity: number, subEntity: string, params?: any): any {
+    return this.http.post(environment.apiUrl + entity + '/' + idEntity + '/' + subEntity, params, this.httpOptions);
+  }
+
+  public addSubSubEntity(entity: string, idEntity: number, idSubEntity: number, subEntity: string, subSubEntity: string, params?: any): any {
+    return this.http.post(environment.apiUrl + entity + '/' + idEntity + '/' + subEntity + '/' + idSubEntity + '/' + subSubEntity, params, this.httpOptions);
+  }
+
+
+  // ====================== Borrar entidades ================================
+
+
+  public deleteEntity(entity: string, id: number): any {
+    return this.http.delete(environment.apiUrl + entity + '/' + id, this.httpOptions);
+  }
+
+  public deleteSubEntity(entity: string, idEntity: number, idSubEntity: number, subEntity: string): any {
+    return this.http.delete(environment.apiUrl + entity + '/' + idEntity + '/' + subEntity + '/' + idSubEntity, this.httpOptions);
+  }
+
+  public deleteSubSubEntity(entity: string, idEntity: number, idSubEntity: number, subEntity: string, subSubEntity: string, idSubSubEntity: number): any {
+    return this.http.delete(environment.apiUrl + entity + '/' + idEntity + '/' + subEntity + '/' + idSubEntity + '/' + subSubEntity + '/' + idSubSubEntity, this.httpOptions);
+  }
+
+
+  // ====================== Actualizar entidades ================================
+
+
+  public updateEntity(entity: string, id: number, params: any): any {
+    return this.http.put(environment.apiUrl + entity + '/' + id, params, this.httpOptions);
+  }
+
+  public updateSubEntity(entity: string, idEntity: number, idSubEntity: number, subEntity: string, params: any): any {
+    return this.http.put(environment.apiUrl + entity + '/' + idEntity + '/' + subEntity + '/' + idSubEntity, params, this.httpOptions);
+  }
+
+  public updateSubSubEntity(entity: string, idEntity: number, idSubEntity: number, subEntity: string, params: any, subSubEntity: string): any {
+    return this.http.put(environment.apiUrl + entity + '/' + idEntity + '/' + subEntity + '/' + idSubEntity + '/' + subSubEntity, params, this.httpOptions);
+  }
 }

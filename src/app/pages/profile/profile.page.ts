@@ -34,7 +34,7 @@ export class ProfilePage implements OnInit {
    
     this.utilities.showLoading("Cargando perfil...");
     
-    this.apiService.getUser().subscribe((user: User) => {
+    this.apiService.getEntity('user').subscribe((user: User) => {
       this.user = user;
       this.form.patchValue(user);
       this.utilities.dismissLoading();
