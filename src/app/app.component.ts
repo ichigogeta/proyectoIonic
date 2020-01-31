@@ -108,6 +108,7 @@ export class AppComponent implements OnInit {
    * Login implícito
    */
   public async loginImplicito(){
+    this.pushNotifications();
     let token=await this.apiService.getTokenStorage();
     if(token) {
       await this.apiService.setTokenToHeaders(token);
