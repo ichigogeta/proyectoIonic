@@ -153,7 +153,7 @@ export class ApiService {
     return this.http.post(environment.apiUrl + entity + '/' + idEntity + '/' + subEntity, params, this.httpOptions);
   }
 
-  public addSubSubEntity(entity: string, idEntity: number, idSubEntity: number, subEntity: string, subSubEntity: string, params?: any): any {
+  public addSubSubEntity(entity: string, idEntity: number, subEntity: string, idSubEntity: number, subSubEntity: string, params?: any): any {
     return this.http.post(environment.apiUrl + entity + '/' + idEntity + '/' + subEntity + '/' + idSubEntity + '/' + subSubEntity, params, this.httpOptions);
   }
 
@@ -165,11 +165,11 @@ export class ApiService {
     return this.http.delete(environment.apiUrl + entity + '/' + id, this.httpOptions);
   }
 
-  public deleteSubEntity(entity: string, idEntity: number, idSubEntity: number, subEntity: string): any {
+  public deleteSubEntity(entity: string, idEntity: number, subEntity: string, idSubEntity: number): any {
     return this.http.delete(environment.apiUrl + entity + '/' + idEntity + '/' + subEntity + '/' + idSubEntity, this.httpOptions);
   }
 
-  public deleteSubSubEntity(entity: string, idEntity: number, idSubEntity: number, subEntity: string, subSubEntity: string, idSubSubEntity: number): any {
+  public deleteSubSubEntity(entity: string, idEntity: number, subEntity: string, idSubEntity: number, subSubEntity: string, idSubSubEntity: number): any {
     return this.http.delete(environment.apiUrl + entity + '/' + idEntity + '/' + subEntity + '/' + idSubEntity + '/' + subSubEntity + '/' + idSubSubEntity, this.httpOptions);
   }
 
@@ -181,11 +181,11 @@ export class ApiService {
     return this.http.put(environment.apiUrl + entity + '/' + id, params, this.httpOptions);
   }
 
-  public updateSubEntity(entity: string, idEntity: number, idSubEntity: number, subEntity: string, params: any): any {
+  public updateSubEntity(entity: string, idEntity: number, subEntity: string, idSubEntity: number, params: any): any {
     return this.http.put(environment.apiUrl + entity + '/' + idEntity + '/' + subEntity + '/' + idSubEntity, params, this.httpOptions);
   }
 
-  public updateSubSubEntity(entity: string, idEntity: number, idSubEntity: number, subEntity: string, params: any, subSubEntity: string): any {
+  public updateSubSubEntity(entity: string, idEntity: number, subEntity: string, idSubEntity: number, subSubEntity: string, params: any): any {
     return this.http.put(environment.apiUrl + entity + '/' + idEntity + '/' + subEntity + '/' + idSubEntity + '/' + subSubEntity, params, this.httpOptions);
   }
 }
