@@ -8,10 +8,10 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 })
 export class CoverPagePage implements OnInit {
 
-  constructor(private statusBar:StatusBar) { }
+  constructor() { }
 
   ngOnInit() {
-    this.statusBar.styleBlackOpaque();
+
   }
 
 }

@@ -11,6 +11,9 @@ const routes: Routes = [
   { path: 'register', loadChildren: () => import('./pages/register/register.module').then( m => m.RegisterPageModule)},
   { path: 'forgot-password', loadChildren: () => import('./pages/forgot-password/forgot-password.module').then( m => m.ForgotPasswordPageModule)},
   { path: 'cover-page', loadChildren: () => import('./pages/cover-page/cover-page.module').then( m => m.CoverPagePageModule)},
+  { path: 'chats', loadChildren: () => import('./pages/chats/chats.module').then( m => m.ChatsPageModule)},
+  { path: 'interior-chat/:id_chat/:nombre_chat/:ultimo_mensaje', loadChildren: ()=> import('./pages/interior-chat/interior-chat.module').then (m => m.InteriorChatPageModule)},
+
 
 ];
 

@@ -1,0 +1,35 @@
+
+ion-content{
+    ion-list{
+        ion-item{
+            .title{
+                font-size: 16px;
+                font-weight: bold;
+                color:var(--ion-color-primary);
+            }
+            .subtitle{
+                font-size: 12px;
+                color:var(--ion-color-primary);
+            }
+            .hora{
+                font-size: 10px;
+                color:#383838;
+            }
+        }
+    }
+    .mensajes{
+        padding-left: 3vw;
+        ion-badge{
+            font-size: 10px;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            text-align: center;
+            padding-top: 6px;
+            padding-left: 3px;
+        }
+    }
+    .right{
+        max-width: 13vw;
+    }
+}

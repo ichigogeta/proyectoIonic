@@ -28,8 +28,7 @@ export class ProfilePage implements OnInit {
     this.form = this.formBuilder.group({
       name: [''],
       email: [''],
-      password: [''],
-      password_confirmation: ['', confirmPassword]
+      avatar:['']
     });
    
     this.utilities.showLoading("Cargando perfil...");

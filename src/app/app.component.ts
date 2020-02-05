@@ -29,6 +29,11 @@ export class AppComponent implements OnInit {
       title: 'Perfil',
       url: '/profile',
       icon: 'person'
+    },
+    {
+      title: 'Chats',
+      url: '/chats',
+      icon: 'chatboxes'
     }
   ];
 
@@ -55,7 +60,7 @@ export class AppComponent implements OnInit {
 
     if (this.platform.is('cordova')) {
       this.platform.ready().then(() => {
-        this.statusBar.styleDefault();
+        this.statusBar.styleBlackOpaque();
         this.splashScreen.hide();
       });
     }
@@ -87,9 +92,7 @@ export class AppComponent implements OnInit {
     const pushObject: PushObject = this.push.init(options);
 
     pushObject.on('notification').subscribe((notification: any) => {
-      if (notification.additionalData.foreground) {
-        this.utilities.showAlert('Nueva notificación', `Has recibido una nueva notificación. <br><p><u>Título</u>: ${notification.title}</p><p><u>Descripción</u>: ${notification.message}</p>`);
-      }
+      this.events.publish('add-mensaje', notification.additionalData.apiData.mensaje);
     });
 
     pushObject.on('registration').subscribe((registration: any) => {

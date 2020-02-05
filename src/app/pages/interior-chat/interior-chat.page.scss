@@ -1,0 +1,121 @@
+ion-header{
+    p{
+        margin:0;
+    }
+    .conexion{
+        font-size: 10px;
+    }
+    .escribiendo{
+        font-size: 10px;
+        color: var(--ion-color-success);
+    }
+    .nombre{
+        font-size: 16px;
+        font-weight: bold;
+    }
+    .editar{
+        font-size: 12px;
+    }
+}
+ion-footer{
+    .camera{
+        position: absolute;
+        right: 15vw;
+        bottom: 2vw;
+        z-index: 99;
+
+    }
+    .send{
+        position: absolute;
+        right: 5vw;
+        z-index: 99;
+        bottom: 2vw;
+    }
+    .imagen {
+        padding: 15px 0px 15px 0px;
+        max-height: 50vh;
+        margin:0 auto;
+    }
+    .texto{
+        max-width: 100% !important;
+        ion-input{
+            --padding-botom:15px !important;
+            text-align: left;
+        }
+        
+    }
+    .close{
+        position: absolute;
+        top: 1px;
+        right: 2vw;
+        font-size: 30px;
+        color:red;
+        z-index: 99;
+        font-weight: bold;
+        background:white;
+        border-radius: 50%;
+    }
+}
+ion-content{
+    --background:var(--ion-color-secondary);
+    p{
+        margin:0;
+    }
+
+    .hora{
+        font-size: 12px;
+        color:#383838;
+        font-weight: lighter;
+    }
+    .mensaje{
+        border-radius: 10px;
+        color:white;
+        font-size: 16px;
+        padding:10px;
+        float: left;
+        position: relative;
+        max-width:70%;
+    }
+    .item-izq{
+        margin:20px;
+        .hora{
+            margin-left: 13vw;        
+        }
+    }
+
+    .item-der{
+        margin:20px;
+        overflow: hidden;
+        .hora{
+            margin-right: 2vw;    
+            margin-top: 1vw;
+            float: right;    
+        }
+    }
+    .izq{
+        width: 100%;
+        overflow: hidden;
+        display: block;
+        ion-avatar{
+            width:35px;
+            height: 35px;
+            float: left;
+        }
+        .mensaje{
+            background-color:#707070;
+            float: left;
+            margin-left: 10px;
+        }
+    }
+
+    .der{
+        width:100%;
+        overflow: hidden;
+        display: block;
+        
+        .mensaje{
+            background-color:#464646;
+            float: right;
+        }
+    }
+}
