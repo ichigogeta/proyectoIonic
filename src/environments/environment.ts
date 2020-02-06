@@ -6,8 +6,8 @@
 export const environment = {
   production: false,
 
-  //Url del endpoint de la api
-  apiUrl: 'http://localhost/corralia-laravel/public/api/auth/',
+  //Url del endpoint de la api de pruebas
+  apiUrl: 'https://development.xerintel.net/api/auth/',
 
   //apiUrl: 'http://app.xerintel.net/devxerintel/api/auth/',
     
