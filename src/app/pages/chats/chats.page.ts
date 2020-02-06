@@ -28,7 +28,7 @@ export class ChatsPage implements OnInit {
     this.events.subscribe('add-mensaje', (mensaje) => {
       this.ngZone.run(() => {
         this.chats = this.chats.map(x => {
-          if (x.id == mensaje.corral_id) {
+          if (x.id == mensaje.chat_id) {
             x.mensajes_nuevos += 1;
             x.descripcion = mensaje.texto;
           }
@@ -38,7 +38,7 @@ export class ChatsPage implements OnInit {
     });
   }
   public getChats(): void {
-    this.apiService.getEntity('corrales').subscribe((chats: Chat[]) => {
+    this.apiService.getEntity('chats').subscribe((chats: Chat[]) => {
       this.utilities.dismissLoading();
       this.chats = chats.map(x => {
 

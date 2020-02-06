@@ -73,7 +73,7 @@ export class InteriorChatPage implements OnInit {
 
   public getMensajes(): void {
     this.utilities.showLoading();
-    this.apiService.getSubEntity('corrales', this.idChat, 'mensajes').subscribe((mensajes: Mensaje[]) => {
+    this.apiService.getSubEntity('chats', this.idChat, 'mensajes').subscribe((mensajes: Mensaje[]) => {
       this.utilities.dismissLoading();
       this.mensajes = mensajes;
       setTimeout(() => {
@@ -102,7 +102,7 @@ export class InteriorChatPage implements OnInit {
       this.ultimoMensaje = mensaje.created_at;
       this.mensajes.push(mensaje);
 
-      this.apiService.addSubEntity('corrales', this.idChat, 'mensajes', mensaje).subscribe((mensaje: Mensaje) => {
+      this.apiService.addSubEntity('chats', this.idChat, 'mensajes', mensaje).subscribe((mensaje: Mensaje) => {
 
       }, error => {
         console.log(error);
