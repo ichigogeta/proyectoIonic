@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
+import { MenuController } from '@ionic/angular';
 
 @Component({
   selector: 'app-cover-page',
@@ -8,10 +9,10 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 })
 export class CoverPagePage implements OnInit {
 
-  constructor() { }
+  constructor(private menuCtrl:MenuController) { }
 
   ngOnInit() {
-
+    this.menuCtrl.enable(false);
   }
 
 }
