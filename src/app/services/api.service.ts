@@ -146,7 +146,7 @@ export class ApiService {
 
 
   public addEntity(entity: string, params: any): any {
-    return this.http.post(environment.apiUrl + entity + '/', params, this.httpOptions);
+    return this.http.post(environment.apiUrl + entity, params, this.httpOptions);
   }
 
   public addSubEntity(entity: string, idEntity: number, subEntity: string, params?: any): any {
