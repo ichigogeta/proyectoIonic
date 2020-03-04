@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.xerintel.movillucas231" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>Movillucas</name>
-    <description>An awesome Ionic/Cordova app.</description>
-    <author email="hi@ionicframework.com" href="http://ionicframework.com/">Ionic Framework Team</author>
+<widget id="com.xerintel.xerintel231" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>Xerintel</name>
+    <description>Xerintel App</description>
+    <author email="app@xerintel.es" href="http://xerintel.es/">Xerintel</author>
     <content src="index.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
