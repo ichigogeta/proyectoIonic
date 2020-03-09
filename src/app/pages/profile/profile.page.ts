@@ -42,14 +42,10 @@ export class ProfilePage implements OnInit {
       this.utilities.dismissLoading();
     });
 
-    this.apiService.userChanges.subscribe((user: User) => {
-      this.user = user;
-    });
   }
 
   public submitForm(): void {
     this.apiService.updateUser(this.form.value).subscribe((user: User) => {
-      this.user = user;
       this.utilities.showToast('Usuario actualizado correctamente');
     }, (error) => {
       this.utilities.showToast(codeErrors(error));
@@ -73,6 +69,8 @@ export class ProfilePage implements OnInit {
     this.camera.getPicture(options).then((urlFoto) => {
       this.base64img = 'data:image/jpeg;base64,' + urlFoto;
       this.user.avatar = this.base64img;
+      this.form.patchValue({ avatar: this.base64img });
+
       console.log(urlFoto);
     }).catch(error => {
       this.utilities.showAlert('Error al obtener imagen', error);
