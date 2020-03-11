@@ -77,10 +77,10 @@ export class UtilitiesService {
   }
 
   /**
-   * Quita el loading cargado
+   * Quita el loading cargado (arreglado)
    */
-  async dismissLoading() {
-    return this.loading.dismiss();
+  public dismissLoading() {
+    this.loading.dismiss().then(() => { return true; })
   }
 
   /**
