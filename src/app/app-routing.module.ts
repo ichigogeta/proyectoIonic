@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'cover-page', pathMatch: 'full' },
+  { path: '', redirectTo: 'idiomas', pathMatch: 'full' },
   { path: 'logout', redirectTo: 'login', pathMatch: 'full' },
   { path: 'home', loadChildren: () => import('./pages/home/home.module').then( m => m.HomePageModule)},
   { path: 'details', loadChildren: () => import('./pages/details/details.module').then( m => m.DetailsPageModule)},
@@ -13,6 +13,7 @@ const routes: Routes = [
   { path: 'cover-page', loadChildren: () => import('./pages/cover-page/cover-page.module').then( m => m.CoverPagePageModule)},
   { path: 'chats', loadChildren: () => import('./pages/chats/chats.module').then( m => m.ChatsPageModule)},
   { path: 'interior-chat/:id_chat/:nombre_chat/:ultimo_mensaje', loadChildren: ()=> import('./pages/interior-chat/interior-chat.module').then (m => m.InteriorChatPageModule)},
+  { path: 'idiomas', loadChildren: () => import('./pages/idiomas/idiomas.module').then( m => m.IdiomasPageModule)},
 
 
 ];

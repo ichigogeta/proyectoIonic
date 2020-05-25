@@ -52,10 +52,10 @@ export class AppComponent implements OnInit {
    * Nos suscribimos a los cambios dle perfil
    */
   public ngOnInit(): void {
+    this.pushNotifications();
     this.loginImplicito();
     this.events.subscribe('user:login', () => {
       this.prepararStripe();
-      this.pushNotifications();
     });
 
     if (this.platform.is('cordova')) {
@@ -111,13 +111,12 @@ export class AppComponent implements OnInit {
    * Login implícito
    */
   public async loginImplicito(){
-    this.pushNotifications();
     let token=await this.apiService.getTokenStorage();
     if(token) {
       await this.apiService.setTokenToHeaders(token);
       this.navCtrl.navigateRoot('/home');
     }else{
-      this.navCtrl.navigateRoot('/cover-page');
+      this.navCtrl.navigateRoot('/idiomas');
     }
   }
 

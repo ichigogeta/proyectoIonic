@@ -10,12 +10,17 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
 import { IonicStorageModule } from '@ionic/storage';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { Toast } from '@ionic-native/toast/ngx';
 import { Push } from '@ionic-native/push/ngx';
 import { Camera } from '@ionic-native/camera/ngx';
 import { Stripe } from '@ionic-native/stripe/ngx';
+import { TranslateModule, TranslateLoader, TranslateService } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
+export function createTranslateLoader(http: HttpClient) {
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
 
 @NgModule({
   declarations: [AppComponent],
@@ -25,6 +30,13 @@ import { Stripe } from '@ionic-native/stripe/ngx';
     HttpClientModule,
     IonicModule.forRoot(),
     IonicStorageModule.forRoot(),
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: (createTranslateLoader),
+        deps: [HttpClient]
+      }
+    }),
     AppRoutingModule,
   ],
   providers: [
@@ -34,7 +46,7 @@ import { Stripe } from '@ionic-native/stripe/ngx';
     Toast,
     Push,
     Camera,
-    Stripe
+    Stripe,
   ],
   bootstrap: [AppComponent]
 })
