@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1000394821861",
+    "firebase_url": "https://pwa-mercadomarisco.firebaseio.com",
+    "project_id": "pwa-mercadomarisco",
+    "storage_bucket": "pwa-mercadomarisco.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1000394821861:android:9d67e3611e6d268a43040c",
+        "android_client_info": {
+          "package_name": "com.xerintel.mercadomarisco"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1000394821861-km3m0l6b46pcggd9eatc9u99vg47p3e0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB1BQ1xko77msP6GGVVZcFYSRr6vNh7ib0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1000394821861-km3m0l6b46pcggd9eatc9u99vg47p3e0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

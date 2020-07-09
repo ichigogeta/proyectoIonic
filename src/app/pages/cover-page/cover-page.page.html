@@ -1,14 +1,14 @@
 <ion-content>
-
-  <!-- Logo de la aplicación -->
-  <div class="logo ion-text-center">
-    <img src="assets/imgs/logo.png" alt="">
-  </div>
-
-  <div class="botones">
-    <ion-button class="btn btn-facebook" type="button" expand="full"  color="facebook">Entrar con
-      facebook</ion-button>
-    <ion-button class="btn btn-login" type="button" expand="full" routerLink="/login">identifícate</ion-button>
-  </div>
-
+  <!-- Pantallas tutorial -->
+  <ion-slides pager="true">
+    <!-- Slider1 -->
+    <ion-slide>
+      <img class="logo" src="assets/imgs/logo.png" alt="">
+    </ion-slide>
+    <!-- Slider2 -->
+    <ion-slide>
+      <img class="logo" src="assets/imgs/logo.png" alt="">
+      <span routerLink="/login" class="btn">PAST</span>
+    </ion-slide>
+  </ion-slides>
 </ion-content>

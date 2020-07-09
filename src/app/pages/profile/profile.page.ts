@@ -5,6 +5,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { confirmPassword, codeErrors } from 'src/app/utils/utils';
 import { UtilitiesService } from 'src/app/services/utilities.service';
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
+import { AuthenticationService } from 'src/app/services/authentication.service';
 
 @Component({
   selector: 'app-profile',
@@ -15,12 +16,13 @@ export class ProfilePage implements OnInit {
 
   public user: User;
   public form: FormGroup;
-  public base64img:string;
+  public base64img: string;
 
   constructor(private apiService: ApiService,
     private formBuilder: FormBuilder,
     private utilities: UtilitiesService,
-    private camera:Camera) {
+    private camera: Camera,
+    private auth: AuthenticationService) {
 
   }
 
@@ -28,16 +30,16 @@ export class ProfilePage implements OnInit {
     this.form = this.formBuilder.group({
       name: [''],
       email: [''],
-      avatar:['']
+      avatar: ['']
     });
-   
+
     this.utilities.showLoading("Cargando perfil...");
-    
+
     this.apiService.getEntity('user').subscribe((user: User) => {
       this.user = user;
       this.form.patchValue(user);
       this.utilities.dismissLoading();
-    },error=>{
+    }, error => {
       this.utilities.showToast("Error obteniendo el usuario");
       this.utilities.dismissLoading();
     });

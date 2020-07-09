@@ -5,6 +5,7 @@ import { UtilitiesService } from 'src/app/services/utilities.service';
 import { MenuController, NavController, Events } from '@ionic/angular';
 import { User } from 'src/app/models/User';
 import { codeErrors } from "../../utils/utils";
+import { AuthenticationService } from 'src/app/services/authentication.service';
 
 @Component({
   selector: 'app-login',
@@ -22,7 +23,8 @@ export class LoginPage implements OnInit {
     private utilitiesService: UtilitiesService,
     private menuCtrl: MenuController,
     private navCtrl: NavController,
-    private events: Events) {
+    private events: Events,
+    private auth: AuthenticationService) {
 
   }
 
@@ -37,7 +39,7 @@ export class LoginPage implements OnInit {
 
   public submitForm(): void {
     this.utilitiesService.showLoading("Entrando...");
-    
+
     this.apiService.login(this.form.value).subscribe((user: User) => {
 
       this.utilitiesService.dismissLoading();
@@ -49,11 +51,8 @@ export class LoginPage implements OnInit {
       //Emitimos el evento de login
       this.events.publish('user:login');
 
-      //Guardamos el token en el storage
-      this.apiService.setTokenStorage(user.api_token);
-
       //Vamos a inicio
-      this.navCtrl.navigateRoot('/home');
+      this.auth.login(user.api_token);
 
     }, (error) => {
       this.utilitiesService.dismissLoading();

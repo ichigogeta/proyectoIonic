@@ -6,7 +6,6 @@ import { User } from '../models/User';
 import { environment } from '../../environments/environment';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { UtilitiesService } from './utilities.service';
-import { Storage } from '@ionic/storage';
 
 
 @Injectable({
@@ -19,8 +18,7 @@ export class ApiService {
   public httpOptions: any;
 
   constructor(public http: HttpClient,
-    private utilities: UtilitiesService,
-    private storage: Storage) { }
+    private utilities: UtilitiesService) { }
 
   /**
    * Método para iniciar sesión
@@ -62,29 +60,6 @@ export class ApiService {
   }
 
   /**
-   * Guardamos el token de sesion en el storage
-   */
-  public setTokenStorage(token: string): void {
-    //Guardamos el token en el storage
-    this.storage.set('api_token', token);
-  }
-
-  /**
-   * Devolvemos el token del storage 
-   */
-  public getTokenStorage() {
-    return this.storage.get('api_token');
-  }
-
-  /**
-   * Borramos todos los datos del storage
-   */
-  public clearStorage() {
-    this.storage.clear();
-  }
-
-
-  /**
    * Método para actualizar los datos del usuario
    * @param user 
    */
@@ -95,7 +70,7 @@ export class ApiService {
 
 
   /**
-   * Guardar el token del dispositivo en el servidor
+   * Guardar el token del dispositivo en el servidor firebase
    * @param tokenRegistro 
    */
   public guardarTokenDeRegistro(tokenRegistro) {
@@ -103,7 +78,7 @@ export class ApiService {
   }
 
   /**
- * Método para procesar el pago
+ * Método para procesar el pago stripe
  */
   public procesarPago(params: { precio: number, stripeToken?: any }): any {
 
