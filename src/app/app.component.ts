@@ -53,11 +53,11 @@ export class AppComponent implements OnInit {
    * Nos suscribimos a los cambios dle perfil
    */
   public ngOnInit(): void {
-    //this.pushNotifications();
-    //this.prepararStripe();
     this.auth.authenticationState.subscribe(state => {
       console.log(state);
       if (state) {
+        //this.pushNotifications();
+        //this.prepararStripe();
         this.router.navigate(['home']);
       } else {
         this.router.navigate(['cover-page']);
