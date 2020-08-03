@@ -35,9 +35,11 @@ export class InteriorChatPage implements OnInit {
 
   }
 
+  public ionViewDidEnter():void{
+    this.getMensajes();
+  }
   /* Obtenemos los mensajes y nos suscribimos a las notificaciones push */
   public ngOnInit(): void {
-    this.getMensajes();
     this.events.subscribe('add-mensaje', (mensaje) => {
       this.ngZone.run(() => {
         let m: Mensaje = {
