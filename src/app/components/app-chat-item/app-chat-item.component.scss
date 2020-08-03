@@ -1,0 +1,64 @@
+.left{
+    width: 100%;
+    overflow: hidden;
+    display: block;
+    ion-avatar{
+        width:35px;
+        height: 35px;
+        float: left;
+    }
+    .message{
+        background-color:#707070;
+        float: left;
+        margin-left: 10px;
+    }
+}
+
+.right{
+    width:100%;
+    overflow: hidden;
+    display: block;
+    
+    .message{
+        background-color:#464646;
+        float: right;
+    }
+}
+
+
+.item-left{
+    margin:20px;
+    .hora{
+        margin-left: 13vw;        
+    }
+}
+
+.item-right{
+    margin:20px;
+    overflow: hidden;
+    .date{
+        margin-right: 2vw;    
+        margin-top: 1vw;
+        float: right;    
+    }
+}
+
+
+p{
+    margin:0;
+}
+
+.date{
+    font-size: 12px;
+    color:#383838;
+    font-weight: lighter;
+}
+.message{
+    border-radius: 10px;
+    color:white;
+    font-size: 16px;
+    padding:10px;
+    float: left;
+    position: relative;
+    max-width:70%;
+}

@@ -1,16 +1,14 @@
-<ion-header>
-  <ion-toolbar color="primary">
-    <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
-    </ion-buttons>
-    <ion-title>Perfil</ion-title>
-  </ion-toolbar>
-</ion-header>
+<app-header [title]="'Perfil'" [color]="'primary'" [menuButton]="true" [backButton]="false">
+</app-header>
 
-<ion-content padding>
+
+<app-loading [text]="'Cargando perfil...'" *ngIf="isLoading"></app-loading>
+
+<ion-content padding *ngIf="!isLoading">
   <ion-avatar>
     <img [src]="user?.avatar" (click)="adjuntarImagen()">
   </ion-avatar>
+
   <form *ngIf="form" [formGroup]="form" (ngSubmit)="submitForm()">
     <ion-item>
       <ion-label>
@@ -27,4 +25,5 @@
     <ion-button expand="block" type="submit" [disabled]="!form.valid">Guardar cambios</ion-button>
     <ion-button expand="block" type="button" (click)="auth.logout()">Cerrar sesión</ion-button>
   </form>
+
 </ion-content>

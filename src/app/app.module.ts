@@ -9,7 +9,7 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
-import { IonicStorageModule } from '@ionic/storage';
+import { IonicStorageModule, Storage } from '@ionic/storage';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { Toast } from '@ionic-native/toast/ngx';
 import { Push } from '@ionic-native/push/ngx';
@@ -46,7 +46,7 @@ export function createTranslateLoader(http: HttpClient) {
     Toast,
     Push,
     Camera,
-    Stripe,
+    Stripe
   ],
   bootstrap: [AppComponent]
 })

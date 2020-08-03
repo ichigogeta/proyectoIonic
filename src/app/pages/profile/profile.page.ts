@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/services/api.service';
 import { User } from 'src/app/models/User';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { confirmPassword, codeErrors } from 'src/app/utils/utils';
+import { codeErrors } from 'src/app/utils/utils';
 import { UtilitiesService } from 'src/app/services/utilities.service';
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 import { AuthenticationService } from 'src/app/services/authentication.service';
@@ -17,12 +17,13 @@ export class ProfilePage implements OnInit {
   public user: User;
   public form: FormGroup;
   public base64img: string;
+  public isLoading: boolean = true;
 
   constructor(private apiService: ApiService,
     private formBuilder: FormBuilder,
     private utilities: UtilitiesService,
     private camera: Camera,
-    private auth: AuthenticationService) {
+    private auth:AuthenticationService) {
 
   }
 
@@ -33,15 +34,13 @@ export class ProfilePage implements OnInit {
       avatar: ['']
     });
 
-    this.utilities.showLoading("Cargando perfil...");
-
     this.apiService.getEntity('user').subscribe((user: User) => {
       this.user = user;
       this.form.patchValue(user);
-      this.utilities.dismissLoading();
+      this.isLoading = false;
     }, error => {
       this.utilities.showToast("Error obteniendo el usuario");
-      this.utilities.dismissLoading();
+      this.isLoading=false;
     });
 
   }

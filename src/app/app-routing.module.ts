@@ -16,6 +16,7 @@ const routes: Routes = [
   { path: 'interior-chat/:id_chat/:nombre_chat/:ultimo_mensaje', canActivate: [AuthGuard], loadChildren: () => import('./pages/interior-chat/interior-chat.module').then(m => m.InteriorChatPageModule) },
 
 
+
 ];
 
 @NgModule({

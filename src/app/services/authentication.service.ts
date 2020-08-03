@@ -10,7 +10,7 @@ const TOKEN_KEY = 'auth-token';
 })
 export class AuthenticationService {
 
-  public authenticationState = new BehaviorSubject(false);
+  public authenticationState = new BehaviorSubject('');
 
   constructor(private storage: Storage, private plt: Platform) {
     this.checkToken();
@@ -19,26 +19,25 @@ export class AuthenticationService {
   public checkToken() {
     this.storage.get(TOKEN_KEY).then(res => {
       console.log(res);
-
       if (res) {
-        this.authenticationState.next(true);
+        this.authenticationState.next(res);
       }
     })
   }
 
   public login(token): Promise<void> {
     return this.storage.set(TOKEN_KEY, token).then(() => {
-      this.authenticationState.next(true);
+      this.authenticationState.next(token);
     });
   }
 
   public logout(): Promise<void> {
     return this.storage.remove(TOKEN_KEY).then(() => {
-      this.authenticationState.next(false);
+      this.authenticationState.next('logout');
     });
   }
 
-  public isAuthenticated(): boolean {
+  public isAuthenticated(): string {
     return this.authenticationState.value;
   }
 

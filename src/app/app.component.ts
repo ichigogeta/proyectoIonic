@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Platform, Events } from '@ionic/angular';
+import { Platform, Events, NavController } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { ApiService } from './services/api.service';
@@ -9,7 +9,7 @@ import { Push, PushObject, PushOptions } from '@ionic-native/push/ngx';
 import { environment } from "../environments/environment";
 import { Stripe } from '@ionic-native/stripe/ngx';
 import { AuthenticationService } from './services/authentication.service';
-import { Router } from '@angular/router';
+import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'app-root',
@@ -46,21 +46,25 @@ export class AppComponent implements OnInit {
     private events: Events,
     private stripe: Stripe,
     private auth: AuthenticationService,
-    private router: Router) {
+    private navCtrl: NavController,
+    private storage: Storage) {
   }
 
   /**
    * Nos suscribimos a los cambios dle perfil
    */
   public ngOnInit(): void {
-    this.auth.authenticationState.subscribe(state => {
-      console.log(state);
-      if (state) {
+    this.auth.authenticationState.subscribe(token => {
+      if (token != 'logout' && token != '') {
         //this.pushNotifications();
         //this.prepararStripe();
-        this.router.navigate(['home']);
+        this.apiService.setTokenToHeaders(token);
+        this.navCtrl.navigateRoot('home');
+      } else if (token == 'logout') {
+        this.apiService.removeTokenToHeaders();
+        this.navCtrl.navigateRoot('cover-page');
       } else {
-        this.router.navigate(['cover-page']);
+        console.log("primera vez");
       }
     });
 

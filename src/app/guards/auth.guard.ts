@@ -9,7 +9,7 @@ export class AuthGuard implements CanActivate {
 
   constructor(public auth: AuthenticationService) { }
 
-  public canActivate(): boolean {
-    return this.auth.isAuthenticated();
+  public canActivate(): boolean {    
+      return this.auth.isAuthenticated() ? true : false
   }
 }

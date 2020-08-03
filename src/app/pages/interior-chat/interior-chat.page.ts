@@ -3,7 +3,6 @@ import { ApiService } from 'src/app/services/api.service';
 import { UtilitiesService } from 'src/app/services/utilities.service';
 import { ActivatedRoute } from '@angular/router';
 import { Events } from '@ionic/angular';
-import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 import { Mensaje } from 'src/app/models/Mensaje';
 
 @Component({
@@ -15,37 +14,29 @@ export class InteriorChatPage implements OnInit {
 
   @ViewChild('content', null) private content: any;
 
-  public mensajeActual: Mensaje;
-  public mensajes: Mensaje[];
+  public messages: Mensaje[];
   public idChat: number;
-  public nombreChat: string;
-  public ultimoMensaje;
-  public escribiendo: boolean;
-  public escribiendoUser: string;
+  public chatName: string;
+  public lastMessage;
+  public isLoading: boolean = true;
+
 
   constructor(private apiService: ApiService,
     private utilities: UtilitiesService,
     private route: ActivatedRoute,
     private events: Events,
-    private ngZone: NgZone,
-    private camera: Camera) {
+    private ngZone: NgZone) {
 
     this.route.params.subscribe(params => {
-      console.log(params);
-
       this.idChat = params.id_chat;
-      this.nombreChat = params.nombre_chat;
-      this.ultimoMensaje = params.ultimo_mensaje;
+      this.chatName = params.nombre_chat;
+      this.lastMessage = params.ultimo_mensaje;
     })
 
   }
 
+  /* Obtenemos los mensajes y nos suscribimos a las notificaciones push */
   public ngOnInit(): void {
-    this.mensajeActual = {
-      texto: "",
-      created_at: Date.now(),
-      chat_id: this.idChat
-    }
     this.getMensajes();
     this.events.subscribe('add-mensaje', (mensaje) => {
       this.ngZone.run(() => {
@@ -58,12 +49,9 @@ export class InteriorChatPage implements OnInit {
           avatar: mensaje.avatar,
         }
         console.log("mensaje", m);
-        this.escribiendo = true;
-        this.escribiendoUser = m.user_name;
         setTimeout(() => {
-          this.escribiendo = false;
-          this.ultimoMensaje = m.created_at;
-          this.mensajes.push(m);
+          this.lastMessage = m.created_at;
+          this.messages.push(m);
           this.content.scrollToBottom(300);
         }, 1000);
 
@@ -72,15 +60,15 @@ export class InteriorChatPage implements OnInit {
   }
 
   public getMensajes(): void {
-    this.utilities.showLoading();
-    this.apiService.getSubEntity('chats', this.idChat, 'mensajes').subscribe((mensajes: Mensaje[]) => {
-      this.utilities.dismissLoading();
-      this.mensajes = mensajes;
+    this.isLoading = true;
+    this.apiService.getSubEntity('chats', this.idChat, 'mensajes').subscribe((messages: Mensaje[]) => {
+      this.isLoading = false;
+      this.messages = messages;
       setTimeout(() => {
         this.content.scrollToBottom(1000);
       }, 200);
     }, error => {
-      this.utilities.dismissLoading();
+      this.isLoading = false;
       console.log(error);
       this.utilities.showToast("No se pueden obtener los mensajes");
     });
@@ -91,58 +79,30 @@ export class InteriorChatPage implements OnInit {
     })
   }
 
-  public publicarMensaje() {
-    if (this.mensajeActual.texto != "" || this.mensajeActual.imagen) {
-      let mensaje: Mensaje = {
-        texto: this.mensajeActual.texto,
-        created_at: this.mensajeActual.created_at,
+  /* Enviar mensaje */
+  public sendMessage(message: Mensaje): void {
+
+    if (message.texto != "" || message.imagen) {
+      let msj: Mensaje = {
+        texto: message.texto,
+        created_at: Date.now(),
         chat_id: this.idChat,
-        imagen: this.mensajeActual.urlImagen,
+        imagen: message.imagen,
       }
-      this.ultimoMensaje = mensaje.created_at;
-      this.mensajes.push(mensaje);
+      console.log(message);
 
-      this.apiService.addSubEntity('chats', this.idChat, 'mensajes', mensaje).subscribe((mensaje: Mensaje) => {
 
+      this.apiService.addSubEntity('chats', this.idChat, 'mensajes', msj).subscribe((mensaje: Mensaje) => {
+        this.messages.push(msj);
+        this.lastMessage = msj.created_at;
+        this.content.scrollToBottom(300);
       }, error => {
+        this.utilities.showToast("No se ha podido enviar el mensaje");
         console.log(error);
       });
 
-      this.mensajeActual.texto = "";
-      this.mensajeActual.urlImagen = null;
-
-
-      this.content.scrollToBottom(300);
     }
   }
 
-  /**
-   * Cambiar imagen de perfil
-   */
-  public adjuntarImagen(): void {
-    const options: CameraOptions = {
-      quality: 100,
-      destinationType: this.camera.DestinationType.DATA_URL,
-      mediaType: this.camera.MediaType.PICTURE,
-      encodingType: this.camera.EncodingType.JPEG,
-      sourceType: this.camera.PictureSourceType.PHOTOLIBRARY,
-      targetWidth: 1920,
-      targetHeight: 1080,
-      allowEdit: false
-    }
-    this.camera.getPicture(options).then((urlFoto) => {
-      let base64img = 'data:image/jpeg;base64,' + urlFoto;
-      this.mensajeActual.urlImagen = base64img;
-      console.log(urlFoto);
-    }).catch(error => {
-      this.utilities.showAlert('Error al obtener imagen', error);
-    })
-  }
-
-  public borrarImagen(): void {
-    console.log('Imagen borrada');
-    this.mensajeActual.imagen = null;
-    this.mensajeActual.urlImagen = null;
-  }
 
 }

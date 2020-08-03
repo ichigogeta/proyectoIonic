@@ -12,6 +12,7 @@ import { Chat } from 'src/app/models/Chat';
 export class ChatsPage implements OnInit {
 
   public chats: Chat[] = [];
+  public isLoading: boolean = true;
 
   constructor(private apiService: ApiService,
     private utilities: UtilitiesService,
@@ -19,12 +20,9 @@ export class ChatsPage implements OnInit {
     private events: Events,
     private ngZone: NgZone) { }
 
-  public ionViewDidEnter(): void {
-    this.getChats();
-
-  }
 
   public ngOnInit(): void {
+    /* Evento para notificaciones push */
     this.events.subscribe('add-mensaje', (mensaje) => {
       this.ngZone.run(() => {
         this.chats = this.chats.map(x => {
@@ -36,17 +34,19 @@ export class ChatsPage implements OnInit {
         });
       })
     });
+    this.getChats();
   }
+
   public getChats(): void {
+    this.isLoading = true;
     this.apiService.getEntity('chats').subscribe((chats: Chat[]) => {
-      this.utilities.dismissLoading();
+      this.isLoading = false;
       this.chats = chats.map(x => {
 
         if (x.ultimo_mensaje)
           x.descripcion = x.ultimo_mensaje.texto;
         else
           x.descripcion = "Sin mensajes aún";
-
         if (x.ultimo_mensaje)
           x.ultimo_mensaje = x.ultimo_mensaje.created_at;
         else
@@ -56,6 +56,7 @@ export class ChatsPage implements OnInit {
       );
     }, error => {
       console.log(error);
+      this.isLoading = false;
       this.utilities.showToast("No se pueden obtener los chats");
     });
   }

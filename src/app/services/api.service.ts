@@ -59,6 +59,10 @@ export class ApiService {
     };
   }
 
+  public removeTokenToHeaders(): void {
+    this.httpOptions = null;
+  }
+
   /**
    * Método para actualizar los datos del usuario
    * @param user 
