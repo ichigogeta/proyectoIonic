@@ -59,7 +59,7 @@ export class AppComponent implements OnInit {
         //this.pushNotifications();
         //this.prepararStripe();
         this.apiService.setTokenToHeaders(token);
-        this.navCtrl.navigateRoot('home');
+        this.navCtrl.navigateRoot('tabs');
       } else if (token == 'logout') {
         this.apiService.removeTokenToHeaders();
         this.navCtrl.navigateRoot('cover-page');
