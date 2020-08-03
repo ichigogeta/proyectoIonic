@@ -37,7 +37,8 @@ export class AppChatFooterComponent implements OnInit {
       sourceType: this.camera.PictureSourceType.PHOTOLIBRARY,
       targetWidth: 1920,
       targetHeight: 1080,
-      allowEdit: false
+      allowEdit: true,
+      correctOrientation: true,
     }
     this.camera.getPicture(options).then((urlFoto) => {
       let base64img = 'data:image/jpeg;base64,' + urlFoto;

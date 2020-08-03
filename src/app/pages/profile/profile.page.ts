@@ -23,7 +23,7 @@ export class ProfilePage implements OnInit {
     private formBuilder: FormBuilder,
     private utilities: UtilitiesService,
     private camera: Camera,
-    private auth:AuthenticationService) {
+    private auth: AuthenticationService) {
 
   }
 
@@ -40,7 +40,7 @@ export class ProfilePage implements OnInit {
       this.isLoading = false;
     }, error => {
       this.utilities.showToast("Error obteniendo el usuario");
-      this.isLoading=false;
+      this.isLoading = false;
     });
 
   }
@@ -65,7 +65,8 @@ export class ProfilePage implements OnInit {
       sourceType: this.camera.PictureSourceType.PHOTOLIBRARY,
       targetWidth: 1920,
       targetHeight: 1080,
-      allowEdit: false
+      allowEdit: true,
+      correctOrientation: true
     }
     this.camera.getPicture(options).then((urlFoto) => {
       this.base64img = 'data:image/jpeg;base64,' + urlFoto;
