@@ -1,11 +1,11 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-chat-group',
   templateUrl: './app-chat-group.component.html',
   styleUrls: ['./app-chat-group.component.scss'],
 })
-export class AppChatGroupComponent implements OnInit {
+export class AppChatGroupComponent {
 
   @Input() icon: string;
   @Input() redirection: string;
@@ -18,8 +18,5 @@ export class AppChatGroupComponent implements OnInit {
   @Input() slidingOptionsIcon: string;
 
   constructor() { }
-
-  ngOnInit() {    
-   }
 
 }

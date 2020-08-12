@@ -16,7 +16,7 @@ const COMPONENTS = [
   AppHeaderComponent,
   AppChatFooterComponent,
   AppChatHeaderComponent,
-  AppLoadingComponent
+  AppLoadingComponent,
 ];
 
 @NgModule({

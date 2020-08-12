@@ -1,11 +1,11 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-chat-item',
   templateUrl: './app-chat-item.component.html',
   styleUrls: ['./app-chat-item.component.scss'],
 })
-export class AppChatItemComponent implements OnInit {
+export class AppChatItemComponent{
 
   @Input() text: string;
   @Input() date: string;
@@ -13,7 +13,5 @@ export class AppChatItemComponent implements OnInit {
   @Input() icon: string;
 
   constructor() { }
-
-  ngOnInit() { }
 
 }

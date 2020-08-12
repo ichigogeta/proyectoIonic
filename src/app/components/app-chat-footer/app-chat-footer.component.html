@@ -2,13 +2,8 @@
   <img class="imagen" [src]="message?.imagen" *ngIf="message?.imagen">
   <ion-icon class="close" name="close-circle" *ngIf="message?.imagen" (click)="deleteImage()"></ion-icon>
   <ion-item>
-
     <ion-input type="text" [placeholder]="placeholder" [(ngModel)]="message.texto"></ion-input>
-
-
     <ion-icon class="camera" name="camera" slot="end" (click)="addImage()"></ion-icon>
-
     <ion-icon class="send" name="send" slot="end" (click)="onSendText()"></ion-icon>
-
   </ion-item>
 </ion-footer>
