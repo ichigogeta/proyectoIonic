@@ -3,6 +3,7 @@ import { ApiService } from 'src/app/services/api.service';
 import { UtilitiesService } from 'src/app/services/utilities.service';
 import { AlertController, Events } from '@ionic/angular';
 import { Chat } from 'src/app/models/Chat';
+import { Mensaje } from 'src/app/models/Mensaje';
 
 @Component({
   selector: 'app-chats',
@@ -22,6 +23,7 @@ export class ChatsPage implements OnInit {
 
 
   public ngOnInit(): void {
+
     /* Evento para notificaciones push */
     this.events.subscribe('add-mensaje', (mensaje) => {
       this.ngZone.run(() => {
@@ -39,6 +41,17 @@ export class ChatsPage implements OnInit {
 
   public getChats(): void {
     this.isLoading = true;
+
+    this.apiService.getSubEntity('chats', 1, 'mensajes').subscribe((mensajes: Mensaje[]) => {
+      console.log("Mensajes",mensajes);
+    },error=>{
+      console.log(error);
+    });
+
+
+
+
+
     this.apiService.getEntity('chats').subscribe((chats: Chat[]) => {
       this.isLoading = false;
       this.chats = chats.map(x => {

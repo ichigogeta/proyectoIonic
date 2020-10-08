@@ -1,17 +1,15 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-loading',
   templateUrl: './app-loading.component.html',
   styleUrls: ['./app-loading.component.scss'],
 })
-export class AppLoadingComponent implements OnInit {
+export class AppLoadingComponent {
 
   @Input() color: string = "primary";
   @Input() text: string;
 
   constructor() { }
-
-  ngOnInit() { }
 
 }

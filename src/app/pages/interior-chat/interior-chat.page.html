@@ -8,6 +8,7 @@
 
 
 <ion-content #content>
+  
   <app-loading [text]="'Cargando mensajes...'" [color]="'dark'" *ngIf="isLoading"></app-loading>
   
   <app-chat-item *ngFor="let message of messages" 
@@ -16,6 +17,7 @@
     [image]="message?.imagen" 
     [date]="message?.created_at">
   </app-chat-item>
+  
 </ion-content>
 
 <app-chat-footer 
