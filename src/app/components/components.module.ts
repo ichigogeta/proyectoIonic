@@ -9,6 +9,7 @@ import { AppChatFooterComponent } from './app-chat-footer/app-chat-footer.compon
 import { FormsModule } from '@angular/forms';
 import { AppChatHeaderComponent } from './app-chat-header/app-chat-header.component';
 import { AppLoadingComponent } from './app-loading/app-loading.component';
+import { AppNotificationItemComponent } from './app-notification-item/app-notification-item.component';
 
 const COMPONENTS = [
   AppChatItemComponent,
@@ -17,6 +18,7 @@ const COMPONENTS = [
   AppChatFooterComponent,
   AppChatHeaderComponent,
   AppLoadingComponent,
+  AppNotificationItemComponent
 ];
 
 @NgModule({
