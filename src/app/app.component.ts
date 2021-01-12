@@ -19,7 +19,7 @@ import { Storage } from '@ionic/storage';
 export class AppComponent implements OnInit {
 
   user: User;
-
+  private isLoading: boolean = true;
   public appPages = [
     {
       title: 'Inicio',
@@ -59,11 +59,16 @@ export class AppComponent implements OnInit {
         //this.pushNotifications();
         //this.prepararStripe();
         this.apiService.setTokenToHeaders(token);
-        this.navCtrl.navigateRoot('tabs');
+        this.navCtrl.navigateRoot('tabs').then(() => {
+          this.isLoading = false;
+        });
       } else if (token == 'logout') {
         this.apiService.removeTokenToHeaders();
-        this.navCtrl.navigateRoot('cover-page');
+        this.navCtrl.navigateRoot('cover-page').then(() => {
+          this.isLoading = false;
+        });
       } else {
+        this.isLoading = false;
         console.log("primera vez");
       }
     });

@@ -15,54 +15,6 @@ export class UtilitiesService {
     private toast: ToastController,
     private storage:Storage) { }
 
-  /**
-   * Guarda el código de idioma en el dispositivo
-   * @param lang Código de idioma ('es' o 'en' por ejemplo)
-   */
-  public saveLang(lang: string) {
-    return new Promise((resolve, reject) => {
-      this.storage.set('lang', lang).then(() => {
-        resolve();
-      }).catch(error => {
-        reject(error);
-      })
-    })
-  }
-
-  /**
-   * Devuelve el código de idioma guardado en el dispositivo
-   */
-  public getLang(): Promise<string> {
-    return new Promise((resolve, reject) => {
-      this.storage.get('lang').then(lang => {
-        if (lang) {
-          resolve(lang);
-        }
-        else {
-          resolve('es');
-        }
-      }).catch(error => {
-        reject(error);
-      })
-    })
-  }
-
-  /**
-   * Cierra la sesión borrando todos los datos del usuario actual
-   */
-  public closeSession(): Promise<any> {
-    return new Promise((resolve, reject) => {
-      this.storage.ready().then(() => {
-        this.storage.remove('userData').then(() => {
-          resolve();
-        }).catch(error => {
-          reject('Error al borrar datos de sesión');
-        })
-      }).catch(error => {
-        reject('Error al obtener tus datos');
-      })
-    })
-  }
 
   /**
    * Muestra loading
