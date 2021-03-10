@@ -4,7 +4,6 @@ import { AppChatItemComponent } from './app-chat-item/app-chat-item.component';
 import { AppChatGroupComponent } from './app-chat-group/app-chat-group.component';
 import { IonicModule } from '@ionic/angular';
 import { RouterModule } from '@angular/router';
-import { AppHeaderComponent } from './app-header/app-header.component';
 import { AppChatFooterComponent } from './app-chat-footer/app-chat-footer.component';
 import { FormsModule } from '@angular/forms';
 import { AppChatHeaderComponent } from './app-chat-header/app-chat-header.component';
@@ -14,7 +13,6 @@ import { AppNotificationItemComponent } from './app-notification-item/app-notifi
 const COMPONENTS = [
   AppChatItemComponent,
   AppChatGroupComponent,
-  AppHeaderComponent,
   AppChatFooterComponent,
   AppChatHeaderComponent,
   AppLoadingComponent,

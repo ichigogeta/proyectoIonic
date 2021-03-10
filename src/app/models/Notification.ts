@@ -3,5 +3,6 @@
 export interface Notification{
     id: number,
     text:string,
-    subtitle:string
+    subtitle:string,
+    title?:string
 }

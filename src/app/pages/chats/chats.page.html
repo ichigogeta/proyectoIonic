@@ -9,8 +9,7 @@
     <app-chat-group *ngFor="let chat of chats" [icon]="chat?.urlImagen"
       [redirection]="['/interior-chat', chat?.id,chat?.nombre,chat?.ultimo_mensaje]" [title]="chat?.nombre"
       [subtitle]="chat?.descripcion" [lastMessage]="chat?.ultimo_mensaje" [newMessages]="chat?.mensajes_nuevos"
-      [slidingOptionsSide]="'end'" [slidingOptionsColor]="'primary'" [slidingOptionsIcon]="'trash'"
-      (deleteChat)="deleteChat(chat)">
+      [slidingOptionsSide]="'end'" [slidingOptionsColor]="'primary'" [slidingOptionsIcon]="'trash'">
     </app-chat-group>
   </ion-list>
 </ion-content>

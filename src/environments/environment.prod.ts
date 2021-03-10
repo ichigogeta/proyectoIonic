@@ -7,7 +7,7 @@ export const environment = {
   
   //Url del endpoint de la api
 
-  apiUrl: 'http://app.xerintel.net/devxerintel/api/auth/',
+  apiUrl: 'https://development.xerintel.net/api/auth/',
     
   //Sender id para las notificaciones push
   senderID:'777777777',

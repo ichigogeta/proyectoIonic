@@ -19,7 +19,7 @@ import { Storage } from '@ionic/storage';
 export class AppComponent implements OnInit {
 
   user: User;
-  private isLoading: boolean = true;
+  public isLoading: boolean = true;
   public appPages = [
     {
       title: 'Inicio',

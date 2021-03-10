@@ -23,7 +23,7 @@ export class ProfilePage implements OnInit {
     private formBuilder: FormBuilder,
     private utilities: UtilitiesService,
     private camera: Camera,
-    private auth: AuthenticationService) {
+    public auth: AuthenticationService) {
 
   }
 
