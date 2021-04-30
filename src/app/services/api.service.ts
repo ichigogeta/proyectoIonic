@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 
 import { User } from '../models/User';
 
@@ -17,8 +17,18 @@ export class ApiService {
   public userChanges = new Subject<User>();
   public httpOptions: any;
 
-  constructor(public http: HttpClient,
-    private utilities: UtilitiesService) { }
+  constructor(
+    public http: HttpClient,
+    private utilities: UtilitiesService
+  ) { }
+
+  /**
+   * Hace una petición GET al dominio asociado de la aplicación para comprobar si está o no suspendido.
+   * **IMPORTANTE**: En el archivo `src/environments/environment.ts`, debe establecerse correctamente la propiedad `domainUrl`
+   */
+  public checkAppDomain(): Observable<any> {
+    return this.http.get(environment.domainUrl, { responseType: 'text' });
+  }
 
   /**
    * Método para iniciar sesión

@@ -63,11 +63,12 @@ export class UtilitiesService {
    * @param title Título del alert
    * @param message Mensaje del alert
    */
-  public async showAlert(title: string, message: string) {
+  public async showAlert(title: string, message: string, backdropDismiss = true) {
     let alert = await this.alertCtrl.create({
       header: title,
       message: message,
-      buttons: ['OK']
+      buttons: ['OK'],
+      backdropDismiss: backdropDismiss
     });
 
     alert.present();

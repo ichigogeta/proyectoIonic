@@ -6,7 +6,10 @@
 export const environment = {
   production: false,
 
-  //Url del endpoint de la api de pruebas
+  // URL del dominio asociado a la aplicación, para comprobar si está o no suspendido
+  domainUrl: 'https://development.xerintel.net/',
+
+  // URL del endpoint de la api de pruebas
   apiUrl: 'https://development.xerintel.net/api/auth/',
 
   /* apiUrl: 'http://localhost/laravel-base-api/public/api/auth/', */

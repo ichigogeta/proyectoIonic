@@ -10,6 +10,8 @@ import { environment } from "../environments/environment";
 import { Stripe } from '@ionic-native/stripe/ngx';
 import { AuthenticationService } from './services/authentication.service';
 import { Storage } from '@ionic/storage';
+import { HttpErrorResponse } from '@angular/common/http';
+import { UtilitiesService } from './services/utilities.service';
 
 @Component({
   selector: 'app-root',
@@ -38,7 +40,8 @@ export class AppComponent implements OnInit {
     }
   ];
 
-  constructor(private platform: Platform,
+  constructor(
+    private platform: Platform,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
     private apiService: ApiService,
@@ -47,7 +50,9 @@ export class AppComponent implements OnInit {
     private stripe: Stripe,
     private auth: AuthenticationService,
     private navCtrl: NavController,
-    private storage: Storage) {
+    private storage: Storage,
+    private utilities: UtilitiesService
+  ) {
   }
 
   /**
@@ -71,6 +76,9 @@ export class AppComponent implements OnInit {
         this.isLoading = false;
         console.log("primera vez");
       }
+
+      // IMPORTANTE: para comprobar si la app está o no suspendida, debe ponerse el dominio en la propiedad "domainUrl" del archivo "src/environments/environment.ts"
+      this.checkIfAppIsSuspended();
     });
 
     if (this.platform.is('cordova')) {
@@ -83,7 +91,20 @@ export class AppComponent implements OnInit {
     this.apiService.userChanges.subscribe((user: User) => {
       this.user = user;
     });
+  }
 
+  /**
+   * Comprueba si el dominio de la aplicación está suspendido. Si lo está, muestra un mensaje de aviso al usuario
+   */
+  public checkIfAppIsSuspended() {
+    this.apiService.checkAppDomain().subscribe(async (response) => {
+      // no hacemos nada, ya que el dominio de la aplicación estaría activado
+    },
+      async (errorResponse: HttpErrorResponse) => {
+        if (errorResponse.status == 0 || errorResponse.status == 403) {
+          this.utilities.showAlert('Esta app no ha sido renovada', 'Si usted es el propietario, por favor hable con nosotros en el 956 105 343 para renovar el servicio o contacte con facturacion@xerintel.es', false);
+        }
+      })
   }
 
   /**
