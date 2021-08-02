@@ -19,6 +19,8 @@ import { TranslateModule, TranslateLoader, TranslateService } from '@ngx-transla
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { Facebook } from '@ionic-native/facebook/ngx';
+import { GooglePlus } from '@ionic-native/google-plus/ngx';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -49,7 +51,9 @@ export function createTranslateLoader(http: HttpClient) {
     Toast,
     Push,
     Camera,
-    Stripe
+    Stripe,
+    Facebook,
+    GooglePlus,
   ],
   bootstrap: [AppComponent]
 })

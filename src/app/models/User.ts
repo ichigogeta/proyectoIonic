@@ -8,4 +8,5 @@ export interface User{
     password_confirmation?:string,
     api_token?:string,
     avatar:string
+    givenName?: string
 }

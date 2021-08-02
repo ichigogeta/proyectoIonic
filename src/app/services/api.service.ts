@@ -40,6 +40,22 @@ export class ApiService {
   }
 
   /**
+   * Inicio de sesión con los datos devueltos de Facebook
+   * @param user 
+   */
+  public loginFacebook(user): any {
+    return this.http.post<User>(environment.apiUrl + 'login-facebook', user);
+  }
+
+  /**
+   * Inicio de sesión con los datos devueltos de Google
+   * @param user
+   */
+  public loginGoogle(user): any {
+    return this.http.post<User>(environment.apiUrl + 'login-google', user);
+  }
+
+  /**
    * Método para el registro básico
    * @param user 
    */
