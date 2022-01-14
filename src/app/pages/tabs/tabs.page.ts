@@ -8,9 +8,9 @@ import { Component, OnInit } from '@angular/core';
 export class TabsPage implements OnInit {
 
   public pages = [
-    { tab: 'chats', name: 'Chats', icon: 'chatbubbles' },
-    { tab: 'home', name: 'Inicio', icon: 'home' },
-    { tab: 'profile', name: 'Perfil', icon: 'person' }
+    { tab: 'concursos', name: 'Concursos', icon: 'search' },
+    { tab: 'profile', name: 'Perfil', icon: 'person' },
+    { tab: 'noticias', name: 'Noticias', icon: 'alert' }
   ];
 
   constructor() { }

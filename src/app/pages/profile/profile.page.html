@@ -1,26 +1,42 @@
-
 <app-loading [text]="'Cargando perfil...'" *ngIf="isLoading"></app-loading>
 
+<ion-header no-border>
+  <ion-toolbar>
+    <img id="iconVolver" src="assets/icon/atras-register.svg" alt="icon1" routerLink="/login">
+    <div class="iconosProfile">
+      <img src="assets/icon/config.png" alt="icon2" routerLink="/edit-profile">
+      <img id="icon" src="assets/icon/icon.png" alt="icon3">
+    </div>
+  </ion-toolbar>
+</ion-header>
+
 <ion-content padding *ngIf="!isLoading">
+
   <ion-avatar>
-    <img [src]="user?.avatar" (click)="adjuntarImagen()">
+    <img src="assets/imgs/bordeImagen.svg" alt="bordeImagen">
+    <img id="imagenUsuario" src="assets/imgs/usuario.png" alt="imagenUsuario" (click)="adjuntarImagen()">
   </ion-avatar>
 
-  <form *ngIf="form" [formGroup]="form" (ngSubmit)="submitForm()">
-    <ion-item>
-      <ion-label>
-        <ion-icon name="person"></ion-icon>
-      </ion-label>
-      <ion-input clearInput type="text" placeholder="Nombre de usuario" formControlName="name" required></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label>
-        <ion-icon name="mail"></ion-icon>
-      </ion-label>
-      <ion-input clearInput type="email" placeholder="Email" formControlName="email" required></ion-input>
-    </ion-item>
-    <ion-button expand="block" type="submit" [disabled]="!form.valid">Guardar cambios</ion-button>
-    <ion-button expand="block" type="button" (click)="auth.logout()">Cerrar sesión</ion-button>
-  </form>
-
+  <div class="labelsNombre">
+    <ion-label id="primerNombre">Raimon</ion-label>
+    <ion-label>Moreno</ion-label>
+  </div>
+  <div class="email">
+    <ion-label>imatge@federaciofotografia.cat</ion-label>
+  </div>
+  <ion-button id="botonUno" expand="block" type="button" color="primary">
+    <img src="assets/icon/portapapeles.svg" alt="icon4" (click)="metodo()">
+    <ion-label>Puntuación</ion-label>
+    <img id="flechaUno" src="assets/icon/flechaAbajo.svg" alt="icon5" (click)="metodo()">
+  </ion-button>
+  <ion-button id="botonDos" expand="block" type="button" color="light">
+    <ion-label>Datos personales</ion-label>
+    <img id="flechaDos" src="assets/icon/flechaDerecha.svg" alt="icon6" (click)="metodo()">
+  </ion-button>
+  <div class="campoPassword">
+    <ion-label>Carnet visual:</ion-label>
+    <ion-input type="password" placeholder="******">
+      <img id="ojo" src="assets/icon/ojo.svg" alt="icon7" (click)="metodo()">
+    </ion-input>
+  </div>
 </ion-content>

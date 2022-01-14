@@ -1,0 +1,20 @@
+ion-header{
+    ion-toolbar{
+        .iconVolver{
+            display: flex;
+            flex-direction: row;
+            margin-left: 5%; 
+            ion-title{
+                font-family: Raleway;
+                font-size: 15pt;
+                font-weight: bold;
+            }          
+        }
+        #icon{
+            float: right;
+            position: relative;
+            right: 5%;
+            bottom: 20px;
+        }
+    }
+}

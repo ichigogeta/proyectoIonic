@@ -13,9 +13,9 @@ const routes: Routes = [
     component: TabsPage,
     children: [
       { path: '', redirectTo: 'home', pathMatch: 'full' },
+      { path: 'concursos', loadChildren: () => import('../concursos/concursos.module').then(m => m.ConcursosPageModule) },
       { path: 'profile', loadChildren: () => import('../profile/profile.module').then(m => m.ProfilePageModule) },
-      { path: 'home', loadChildren: () => import('../home/home.module').then(m => m.HomePageModule) },
-      { path: 'chats', loadChildren: () => import('../chats/chats.module').then(m => m.ChatsPageModule) },
+      { path: 'noticias', loadChildren: () => import('../noticias/noticias.module').then(m => m.NoticiasPageModule) }
     ]
   }
 ];

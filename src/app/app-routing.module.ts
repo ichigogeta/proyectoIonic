@@ -15,6 +15,18 @@ const routes: Routes = [
   { path: 'chats', canActivate: [AuthGuard], loadChildren: () => import('./pages/chats/chats.module').then(m => m.ChatsPageModule) },
   { path: 'interior-chat/:id_chat/:nombre_chat/:ultimo_mensaje', canActivate: [AuthGuard], loadChildren: () => import('./pages/interior-chat/interior-chat.module').then(m => m.InteriorChatPageModule) },
   { path: 'tabs', canActivate: [AuthGuard], loadChildren: () => import('./pages/tabs/tabs.module').then(m => m.TabsPageModule) },
+  { path: 'idiomas', loadChildren: () => import('./pages/idiomas/idiomas.module').then(m => m.IdiomasPageModule) },
+  { path: 'edit-profile', loadChildren: () => import('./pages/edit-profile/edit-profile.module').then(m => m.EditProfilePageModule) },
+  { path: 'noticias',canActivate: [AuthGuard], loadChildren: () => import('./pages/noticias/noticias.module').then(m => m.NoticiasPageModule) },
+  { path: 'concursos',canActivate: [AuthGuard], loadChildren: () => import('./pages/noticias/noticias.module').then(m => m.NoticiasPageModule) }
+
+
+
+
+
+
+
+
 
 
 

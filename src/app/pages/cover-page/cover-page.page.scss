@@ -10,6 +10,15 @@ ion-content{
                 background: white !important;
             }
         }
+        ion-slide{
+            display: flex;
+            flex-direction: column;
+        }
         height: 100%;
     }
+}
+
+ion-button{
+    position: relative;
+    top: 10%;
 }

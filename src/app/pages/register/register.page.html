@@ -1,36 +1,55 @@
+<ion-header no-border>
+  <ion-toolbar>
+    <div class="botonVolver">
+      <ion-buttons>
+        <ion-back-button mode="md" slot="start" icon="assets/icon/atras-register.svg" routerLink="/login"></ion-back-button>
+      </ion-buttons>
+      <ion-title>¡Registrate!</ion-title>
+    </div>
+    <ion-label slot="end" routerLink="/login">Ir al login</ion-label>
+  </ion-toolbar>
+</ion-header>
+
 <ion-content>
-  <div class="overlay"></div>
-  <div class="form-wrapper ion-text-center">
-    <form *ngIf="form" [formGroup]="form" (ngSubmit)="submitForm()">
-      <p class="title">Crea una nueva cuenta, es realmente facil!</p>
-      <ion-item>
-        <ion-label>
-          <ion-icon name="person"></ion-icon>
-        </ion-label>
-        <ion-input clearInput type="text" placeholder="Nombre de usuario" formControlName="name" required></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label>
-          <ion-icon name="mail"></ion-icon>
-        </ion-label>
-        <ion-input clearInput type="email" placeholder="Email" formControlName="email" required></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label>
-          <ion-icon name="lock"></ion-icon>
-        </ion-label>
-        <ion-input clearInput type="password" placeholder="Contraseña" formControlName="password" required></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label>
-          <ion-icon name="lock"></ion-icon>
-        </ion-label>
-        <ion-input clearInput type="password" placeholder="Confirma la contraseña"
-          formControlName="password_confirmation" required>
-        </ion-input>
-      </ion-item>
-      <ion-button expand="block" type="submit" [disabled]="!form.valid" color="tertiary">Crear cuenta</ion-button>
-      <ion-button expand="block" type="button" routerLink="/login">Tienes cuenta?</ion-button>
-    </form>
-  </div>
+  <form (ngSubmit)="submitForm()">
+    <div class="campoNombre">
+      <ion-label>Nombre:</ion-label>
+      <ion-input type="text" placeholder="Ramón"></ion-input>
+    </div>
+    <br>
+    <div class="campoApellidos">
+      <ion-label>Apellidos:</ion-label>
+      <ion-input type="text" placeholder="Moreno"></ion-input>
+    </div>
+    <div class="campoEmail">
+      <ion-label>Email:</ion-label>
+      <ion-input type="email" placeholder="Imatge@federaciofotografia.cat"></ion-input>
+    </div>
+    <div class="campoPassword">
+      <ion-label>Contraseña:</ion-label>
+      <ion-input type="password" placeholder="******"></ion-input>
+    </div>
+    <div class="campoConfirmarPassword">
+      <ion-label>Confirmar contraseña:</ion-label>
+      <ion-input type="password" placeholder="******"></ion-input>
+    </div>
+    <div class="campoNumeroSocio">
+      <ion-label>Nº de Socio:</ion-label>
+      <ion-input type="number" placeholder="35784932"></ion-input>
+    </div>
+    <div class="checkProfesion">
+      <ion-checkbox (ionChange)="metodo()"></ion-checkbox>
+      <ion-label>¡Estudiante!</ion-label>
+      <ion-checkbox (ionChange)="metodo()"></ion-checkbox>
+      <ion-label>¡Profesor!</ion-label>
+    </div>
+    <div class="checkPoliticas">
+      <ion-checkbox (ionChange)="metodo()"></ion-checkbox>
+      <ion-label>Acepto politicas de privacidad</ion-label>
+    </div>
+    <ion-button expand="block" type="submit">
+      <ion-label>Registrarme</ion-label>
+      <img src="assets/icon/arrows-right.svg" alt="logo">
+    </ion-button>
+  </form>
 </ion-content>

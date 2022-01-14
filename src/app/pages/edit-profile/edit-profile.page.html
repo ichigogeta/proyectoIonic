@@ -1,0 +1,57 @@
+<ion-header no-border>
+  <ion-toolbar>
+    <div class="iconosUno">
+      <img id="iconVolver" src="assets/icon/atras-register.svg" alt="icon1" routerLink="/tabs/profile">
+      <ion-title>Editar perfil</ion-title>
+    </div>
+    <div class="iconosDos">
+      <img src="assets/icon/confirmation.svg" alt="icon2">
+      <img id="icon" src="assets/icon/icon.png" alt="icon3">
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form (ngSubmit)="submitForm()">
+    <div class="foto">
+      <ion-label>Subir Cambiar foto</ion-label>
+      <label for="file-input">
+        <img src="assets/icon/camara.svg"/>
+      </label>
+      <ion-input id="file-input" type="file" value="Subir Cambiar foto"></ion-input>
+    </div>
+    <div class="labelsNombre">
+      <ion-label id="nombre">Nombre</ion-label>
+      <ion-input type="text" placeholder="Raimon"></ion-input>
+    </div>
+    <div class="labelsEmail">
+      <ion-label id="email">Email</ion-label>
+      <ion-input type="email" placeholder="Imatge@federaciofotografia.cat"></ion-input>
+    </div>
+    <div class="labelsTelefono">
+      <ion-label id="telefono">Teléfono</ion-label>
+      <ion-input type="email" placeholder="65784932"></ion-input>
+    </div>
+    <div class="labelsPassword">
+      <ion-label id="password">Contraseña</ion-label>
+      <ion-input type="password" placeholder="******"></ion-input>
+      <img id="ojo" src="assets/icon/ojo.svg" alt="icon1" (click)="metodo()">
+      <img id="flecha" src="assets/icon/flechaPassword.svg" alt="icon2" (click)="metodo()">
+    </div>
+    <div class="newPassword">
+      <ion-input type="password" placeholder="Contraseña nueva"></ion-input>
+    </div>
+    <div class="repetirNewPassword">
+      <ion-input type="password" placeholder="Repetir nueva contraseña"></ion-input>
+    </div>
+    <div class="labelsEnviarEmail">
+      <ion-label>Enviar contraseña a mail</ion-label>
+      <img id="mail" src="assets/icon/mail.svg" alt="icon3" (click)="metodo()">
+    </div>
+    <div class="labelsBorrarCuenta">
+      <ion-label>Borrar cuenta</ion-label>
+      <img id="papelera" src="assets/icon/papelera.svg" alt="icon4" (click)="metodo()">
+    </div>
+    <ion-button expand="block" type="button" color="success" (click)="guardar()">Guardar</ion-button>
+  </form>
+</ion-content>

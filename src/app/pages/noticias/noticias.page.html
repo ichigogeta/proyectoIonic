@@ -1,0 +1,46 @@
+<ion-header no-border>
+  <ion-toolbar>
+    <div class="iconosNoticias">
+      <img id="iconVolver" src="assets/icon/atras-register.svg" alt="icon1" routerLink="/tabs/profile">
+      <ion-title id="notificaciones" (click)="notificaciones()">Notificaciones</ion-title>
+      <img id="linea" src="assets/icon/linea.svg" alt="icon2">
+      <ion-title id="noticias" (click)="noticias()">Noticias</ion-title>
+      <img id="icon" src="assets/icon/icon.png" alt="icon3">
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="contenidoNotificaciones">
+    <div class="notificacionesActivadas">
+      <ion-label>Notificaciones activadas</ion-label>
+      <ion-toggle id="toggle" slot="end"  color="success"  (ionChange)="valorCheckBoxUno($event)" checked></ion-toggle>
+    </div>  
+  </div>
+  <div class="contenedorUno">
+    <img id="bola" src="/assets/icon/bola.svg" alt="icono1">
+    <ion-label id="labelUno">Nombre de la notificación</ion-label>
+    <ion-label >Temas de la actualidad hispana para favorecer la interculturalidad y praticar la expresión oral</ion-label>
+  </div>
+  <div class="contenedor">
+    <ion-label id="label">Nombre de la notificación</ion-label>
+    <ion-label>Temas de la actualidad hispana para favorecer la interculturalidad y praticar la expresión oral</ion-label>
+  </div>
+  <div class="contenedor">
+    <ion-label id="label">Nombre de la notificación</ion-label>
+    <ion-label>Temas de la actualidad hispana para favorecer la interculturalidad y praticar la expresión oral</ion-label>
+  </div>
+  <div class="contenedorDos">
+    <img id="bola" src="/assets/icon/bola.svg" alt="icono1">
+    <ion-label id="labelDos">Concurso nombre</ion-label>
+    <ion-label>Se acaba el dia 16/08/2021</ion-label>
+  </div>
+  <div class="content">
+    <ion-label id="label">Nombre de la noticia</ion-label>
+    <ion-label>Temas de la actualidad hispana para favorecer la interculturalidad y praticar la expresión oral</ion-label>
+  </div>
+  <div class="content">
+    <ion-label id="label">Nombre de la noticia</ion-label>
+    <ion-label>Temas de la actualidad hispana para favorecer la interculturalidad y praticar la expresión oral</ion-label>
+  </div>
+</ion-content>

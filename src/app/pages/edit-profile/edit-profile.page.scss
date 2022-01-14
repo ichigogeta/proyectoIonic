@@ -1,0 +1,237 @@
+ion-header{
+    ion-toolbar{
+        .iconosUno{
+            display: flex;
+            flex-direction: row;
+            float: left;
+            position: relative;
+            top: 7px;
+            left: 5%;
+            ion-title{
+                font-family: Raleway;
+                font-size: 15pt;
+                font-weight: bold;
+            }
+        }
+        .iconosDos{
+            display: flex;
+            flex-direction: row;
+            float: right;
+            margin-right: 5%;
+            #icon{
+                margin-top: 15%;
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+}
+
+ion-content{
+    form{
+        .foto{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            top: 10px;
+            border-radius: 15px 15px 15px 15px;
+            box-shadow: 0px 0px 5px #F3F2F2;
+            height: 50px;
+            margin-left: 10%;
+            margin-right: 10%;
+            ion-label{
+                color: gray;
+                opacity: 0.5;
+            }
+            label{
+                margin-left: 30%;
+            }
+            #file-input{
+                display: none;
+            }
+        }
+        .labelsNombre{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            top: 30px;
+            border-radius: 15px 15px 15px 15px;
+            box-shadow: 2px 2px 5px #F3F2F2;
+            height: 50px;
+            margin-left: 10%;
+            margin-right: 10%;
+            #nombre{
+                font-family: Raleway;
+                font-size: 15pt;
+                font-weight: bold;
+            }
+            ion-label{
+                margin-left: 5%;
+                font-family: Raleway;
+                font-weight: Regular;
+                font-size: 15pt;
+            }
+            ion-input{
+                margin-left: 10%;
+            }
+        }
+        .labelsEmail{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            top: 60px;
+            border: 1px solid blue;
+            border-radius: 15px 15px 15px 15px;
+            box-shadow: 2px 2px 5px #F3F2F2;
+            height: 50px;
+            margin-left: 10%;
+            margin-right: 10%;
+            #email{
+                font-family: Raleway;
+                font-size: 15pt;
+                font-weight: bold;
+            }
+            ion-label{
+                margin-left: 5%;
+                font-family: Raleway;
+                font-weight: Regular;
+                font-size: 15pt;
+            }
+            ion-input{
+                font-size: 10pt;
+            }
+        }
+        .labelsTelefono{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            top: 90px;
+            border-radius: 15px 15px 15px 15px;
+            box-shadow: 2px 2px 5px #F3F2F2;
+            height: 50px;
+            margin-left: 10%;
+            margin-right: 10%;
+            #telefono{
+                font-family: Raleway;
+                font-size: 15pt;
+                font-weight: bold;
+            }
+            ion-label{
+                margin-left: 5%;
+                font-family: Raleway;
+                font-weight: Regular;
+                font-size: 15pt;
+            }
+            ion-input{
+                margin-left: 10%;
+            }
+        }
+        .labelsPassword{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            top: 110px;
+            border-radius: 15px 15px 15px 15px;
+            box-shadow: 2px 2px 5px #F3F2F2;
+            height: 50px;
+            margin-left: 10%;
+            margin-right: 10%;
+            #password{
+                font-family: Raleway;
+                font-size: 15pt;
+                font-weight: bold;
+            }
+            ion-label{
+                margin-left: 5%;
+                font-family: Raleway;
+                font-weight: Regular;
+                font-size: 15pt;
+            }
+            ion-input{
+                margin-left: 10%;
+            }
+            #ojo{
+                position: relative;
+                right: 10px;
+            }
+        }
+        .newPassword{
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            top: 130px;
+            border-radius: 15px 15px 15px 15px;
+            box-shadow: 2px 2px 5px #F3F2F2;
+            height: 50px;
+            background: #F1F1F1;
+            margin-left: 10%;
+            margin-right: 10%;
+        }
+        .repetirNewPassword{
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            top: 150px;
+            border-radius: 15px 15px 15px 15px;
+            box-shadow: 2px 2px 5px #F3F2F2;
+            height: 50px;
+            background: #F1F1F1;
+            margin-left: 10%;
+            margin-right: 10%;
+        }
+        .labelsEnviarEmail{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            top: 160px;
+            border-radius: 15px 15px 15px 15px;
+            box-shadow: 2px 2px 5px #F3F2F2;
+            height: 50px;
+            margin-left: 10%;
+            margin-right: 10%;
+            #mail{
+                margin-left: 30%;
+            }
+            ion-label{
+                color:gray;
+            }
+        }
+        .labelsBorrarCuenta{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            top: 170px;
+            border-radius: 15px 15px 15px 15px;
+            box-shadow: 2px 2px 5px #F3F2F2;
+            height: 50px;
+            margin-left: 10%;
+            margin-right: 10%;
+            #papelera{
+                margin-left: 54%;
+            }
+            ion-label{
+                color:gray;
+            }
+        }
+        ion-button{
+            position: relative;
+            top: 180px;
+            margin-left: 10%;
+            margin-right: 10%;
+        }
+    }
+}

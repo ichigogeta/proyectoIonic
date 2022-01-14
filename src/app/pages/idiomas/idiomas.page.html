@@ -1,26 +1,33 @@
-<ion-header>
-  <ion-toolbar color="primary"class="ion-text-center">
-    <ion-title>Elige tu idioma</ion-title>
+<ion-header no-border>
+  <ion-toolbar>
+    <div class="botonVolver">
+      <ion-buttons>
+        <ion-back-button mode="md" slot="start" icon="assets/icon/atras-register.svg" routerLink="/cover-page"></ion-back-button>
+      </ion-buttons>
+      <ion-title>Volver</ion-title>
+    </div>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-text-center">
   <ion-row>
     <ion-col class="idioma">
-      <img src="assets/imgs/spanish.png" alt="" (click)="seleccionarIdioma('es')">
+      <div class="elegirIdioma">
+        <img src="assets/imgs/catalan.png" alt="catalan" (click)="seleccionarIdioma('es')">
+        <p>Catalán</p>
+      </div>
     </ion-col>
     <ion-col class="idioma">
-      <img src="assets/imgs/french.png" alt="" (click)="seleccionarIdioma('fr')">
+      <div class="elegirIdioma">
+        <img src="assets/imgs/espaniol.png" alt="espaniol" (click)="seleccionarIdioma('fr')">
+        <p>Español</p>
+      </div>
     </ion-col>
     <ion-col class="idioma">
-      <img src="assets/imgs/pt.png" alt="" (click)="seleccionarIdioma('pt')">
-    </ion-col>
-    <ion-col class="idioma">
-      <img src="assets/imgs/i.png" alt="" (click)="seleccionarIdioma('en')">
-    </ion-col>
-    <ion-col class="idioma">
-      <img src="assets/imgs/it.png" alt="" (click)="seleccionarIdioma('it')">
+      <div class="elegirIdioma">
+        <img src="assets/imgs/frances.png" alt="frances" (click)="seleccionarIdioma('pt')">
+        <p>Francés</p>
+      </div>
     </ion-col>
   </ion-row>
-
 </ion-content>

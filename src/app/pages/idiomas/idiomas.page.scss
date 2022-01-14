@@ -1,14 +1,32 @@
-
-ion-content{
-    ion-row{
-        position: absolute;
-        top: 25vh;
+ion-header{
+    ion-toolbar{
+        .botonVolver{
+            display: flex;
+            flex-direction: row;
+            ion-title{
+                font: bold 15pt Raleway;
+            }
+        }
+        
     }
-    .idioma{
-        width: 100vw;
-        margin-top: 7vh;
-        img{
-            width: 10vw;
+}
+ion-content{
+    font: bold 15pt Raleway;
+    ion-row{
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        top: 20%;
+        margin-left: 25%;
+        ion-col{
+            margin-top: 30%;
+            .elegirIdioma{
+                display: flex;
+                flex-direction: row;
+            }
+            img{
+                width: 100px;
+            }
         }
     }
 }

@@ -24,9 +24,9 @@ export class AppComponent implements OnInit {
   public isLoading: boolean = true;
   public appPages = [
     {
-      title: 'Inicio',
-      url: '/home',
-      icon: 'home'
+      title: 'Concursos',
+      url: "/profile",
+      icon: 'person'
     },
     {
       title: 'Perfil',
@@ -34,9 +34,9 @@ export class AppComponent implements OnInit {
       icon: 'person'
     },
     {
-      title: 'Chats',
-      url: '/chats',
-      icon: 'chatboxes'
+      title: 'Noticias',
+      url: '/noticias',
+      icon: 'alert'
     }
   ];
 
@@ -64,7 +64,7 @@ export class AppComponent implements OnInit {
         //this.pushNotifications();
         //this.prepararStripe();
         this.apiService.setTokenToHeaders(token);
-        this.navCtrl.navigateRoot('tabs').then(() => {
+        this.navCtrl.navigateRoot('/tabs/profile').then(() => {
           this.isLoading = false;
         });
       } else if (token == 'logout') {
